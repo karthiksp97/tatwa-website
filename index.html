@@ -31,39 +31,34 @@
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-    /* Custom Animations & Transitions */
+    /* Custom Transitions */
     .view-container {
-      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+      transition: opacity 0.25s ease-in-out;
     }
     .view-container.hidden {
       display: none !important;
     }
 
-    /* Glassmorphism utilities */
-    .glass-dark {
-      background: rgba(22, 25, 30, 0.75);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
+    /* Glassmorphism Light utilities */
     .glass-light {
-      background: rgba(251, 249, 246, 0.85);
+      background: rgba(251, 249, 246, 0.88);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(155, 63, 37, 0.1);
+      border: 1px solid rgba(155, 63, 37, 0.12);
     }
-    
-    .gradient-text {
-      background: linear-gradient(135deg, #ffffff 0%, #ffb5a1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .glass-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(228, 226, 223, 0.8);
     }
+
     .gradient-terracotta {
       background: linear-gradient(135deg, #c05a3e 0%, #9b3f25 100%);
     }
   </style>
 
-  <!-- Tailwind CSS CDN + Extended Theme -->
+  <!-- Tailwind CSS CDN + Theme Config -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -92,9 +87,8 @@
             "surface-container-highest": "#e4e2df",
             "on-surface": "#1b1c1a",
             "on-surface-variant": "#56423d",
-            "inverse-surface": "#16191e",
-            "inverse-on-surface": "#f2f0ed",
-            "outline": "#89726c"
+            "inverse-surface": "#1b1c1a",
+            "inverse-on-surface": "#f2f0ed"
           },
           fontFamily: {
             "display": ["Noto Serif", "serif"],
@@ -109,8 +103,8 @@
 </head>
 <body class="bg-surface font-body text-on-surface flex flex-col min-h-screen selection:bg-primary/10 selection:text-primary antialiased">
 
-  <!-- ==================== LUXURY FIXED HEADER NAVIGATION BAR ==================== -->
-  <header class="fixed top-0 w-full z-50 glass-light shadow-sm">
+  <!-- ==================== BRIGHT LIGHT HEADER NAVIGATION BAR ==================== -->
+  <header class="fixed top-0 w-full z-50 glass-light shadow-xs border-b border-surface-container-highest/60">
     <div class="max-w-7xl mx-auto h-16 px-4 sm:px-6 flex items-center justify-between">
       <!-- Logo -->
       <a href="#home" class="flex items-center gap-3 group">
@@ -134,7 +128,7 @@
       </a>
 
       <!-- Desktop Nav Links -->
-      <nav class="hidden lg:flex items-center gap-7 font-body text-sm font-medium text-on-surface-variant">
+      <nav class="hidden lg:flex items-center gap-7 font-body text-sm font-semibold text-on-surface-variant">
         <a href="#home" class="hover:text-primary transition-colors py-1 nav-link" data-nav="home">Home</a>
         <a href="#about" class="hover:text-primary transition-colors py-1 nav-link" data-nav="about">About Us</a>
         <a href="#calculator" class="hover:text-primary transition-colors py-1 nav-link" data-nav="calculator">Cost Calculator</a>
@@ -146,7 +140,7 @@
 
       <!-- Action CTA -->
       <div class="flex items-center gap-3">
-        <a href="#contact" class="min-h-[42px] px-4 py-2 rounded-xl gradient-terracotta text-on-primary font-body text-xs uppercase font-bold tracking-wider flex items-center gap-2 shadow-md hover:shadow-lg active:scale-95 transition-all">
+        <a href="#contact" class="min-h-[42px] px-4 py-2 rounded-xl gradient-terracotta text-on-primary font-body text-xs uppercase font-bold tracking-wider flex items-center gap-2 shadow-sm hover:shadow-md active:scale-95 transition-all">
           <span class="material-symbols-outlined text-[18px]">send</span>
           <span>Get BOQ Quote</span>
         </a>
@@ -160,64 +154,60 @@
     <!-- ==================== VIEW 1: HOME PLATFORM (#home) ==================== -->
     <div id="view-home" class="view-container">
       
-      <!-- 1. WOW DRAMATIC HERO SECTION -->
-      <section class="relative bg-[#16191e] text-inverse-on-surface pt-8 pb-16 px-4 sm:px-6 overflow-hidden border-b border-white/10">
-        <!-- Ambient Background Glows -->
-        <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-primary/20 blur-3xl pointer-events-none"></div>
-        <div class="absolute top-1/2 -right-40 w-96 h-96 rounded-full bg-amber-600/15 blur-3xl pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto flex flex-col gap-10 relative z-10">
+      <!-- 1. BRIGHT, ELEGANT TROPICAL HERO SECTION -->
+      <section class="relative bg-surface pt-8 pb-14 px-4 sm:px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col gap-8 relative z-10">
           
           <!-- Badges & Headline -->
           <div class="flex flex-col gap-4 max-w-4xl">
             <div class="flex flex-wrap items-center gap-2">
-              <span class="px-3.5 py-1 rounded-full glass-dark text-tertiary-fixed font-technical text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
+              <span class="px-3.5 py-1 rounded-full bg-primary/10 text-primary font-technical text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 border border-primary/20">
                 <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
                 <span>Kerala Bioclimatic Architecture</span>
               </span>
-              <span class="px-3.5 py-1 rounded-full glass-dark text-secondary-fixed-dim font-technical text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-                <span class="material-symbols-outlined text-[14px] text-primary">water_drop</span>
-                <span>Monsoon Engineered • 0% Cost Overrun Guarantee</span>
+              <span class="px-3.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-technical text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 border border-surface-container-highest">
+                <span class="material-symbols-outlined text-[15px] text-primary">water_drop</span>
+                <span>Monsoon Engineered • 0% Cost Overrun Lock</span>
               </span>
             </div>
 
-            <h1 class="font-display text-3xl sm:text-5xl md:text-6xl text-white font-normal leading-[1.15] tracking-tight">
-              Build Your Dream House in Kerala With <span class="gradient-text italic font-normal">Fixed-Price Architectural Precision.</span>
+            <h1 class="font-display text-3xl sm:text-5xl md:text-6xl text-on-surface font-normal leading-[1.15] tracking-tight">
+              Build Your House in Kerala With <span class="italic text-primary font-normal">Fixed-Price Architectural Clarity.</span>
             </h1>
 
-            <p class="font-body text-base sm:text-lg text-secondary-fixed-dim max-w-2xl font-light leading-relaxed">
-              Transparent BOQ construction estimates, bioclimatic courtyard planning (Nadumuttam), and 360° solar/wind simulation before groundbreaking.
+            <p class="font-body text-base sm:text-lg text-on-surface-variant max-w-2xl font-light leading-relaxed">
+              Transparent itemized BOQ estimates, passive Nadumuttam courtyard planning, and 360° solar/wind simulation before groundbreaking.
             </p>
           </div>
 
-          <!-- Hero Action Cards & Instant Mini Estimator Grid -->
+          <!-- Hero Action Showcase & Light Instant Estimator Grid -->
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
             
-            <!-- Left: Hero Showcase Card -->
-            <div class="lg:col-span-7 relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 group min-h-[340px] flex flex-col justify-end">
+            <!-- Left: Hero Architectural Showcase Card -->
+            <div class="lg:col-span-7 relative rounded-3xl overflow-hidden shadow-md border border-surface-container-highest flex flex-col justify-end min-h-[360px] group">
               <img src="./photorealistic_modern_tropical_villa_in_kerala_india_with_courtyard_natural/screen.png" 
                    alt="Modern Tropical Kerala Villa by Tattva Builders" 
                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/>
-              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
               
               <div class="relative z-10 p-6 sm:p-8 flex flex-col gap-3">
                 <div class="flex items-center gap-2 text-tertiary-fixed font-technical text-xs font-bold uppercase tracking-wider">
                   <span class="material-symbols-outlined text-[16px]">verified</span>
-                  <span>Flagship Monograph • Nadumuttam Villa</span>
+                  <span>Flagship Residence • Nadumuttam Villa</span>
                 </div>
                 <h3 class="font-display text-xl sm:text-3xl text-white font-normal">The Courtyard Villa (Series 04)</h3>
-                <div class="flex flex-wrap gap-3 font-technical text-xs text-secondary-fixed-dim">
-                  <span class="px-2.5 py-1 rounded-md glass-dark text-white">2,450 sq ft</span>
-                  <span class="px-2.5 py-1 rounded-md glass-dark text-white">4 Ensuite BHK</span>
-                  <span class="px-2.5 py-1 rounded-md glass-dark text-tertiary-fixed font-bold">-3.4°C Passive Cooling</span>
-                  <span class="px-2.5 py-1 rounded-md glass-dark text-white">₹52L – ₹64L Turnkey</span>
+                <div class="flex flex-wrap gap-2.5 font-technical text-xs">
+                  <span class="px-3 py-1 rounded-lg glass-light text-on-surface font-semibold">2,450 sq ft</span>
+                  <span class="px-3 py-1 rounded-lg glass-light text-on-surface font-semibold">4 Ensuite BHK</span>
+                  <span class="px-3 py-1 rounded-lg bg-primary text-white font-bold">-3.4°C Cooling</span>
+                  <span class="px-3 py-1 rounded-lg glass-light text-primary font-bold">₹52L – ₹64L Turnkey</span>
                 </div>
                 <div class="flex items-center gap-3 pt-2">
-                  <a href="#design-detail" class="h-11 px-5 rounded-xl gradient-terracotta text-white font-body text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-md hover:scale-102 transition-all">
-                    <span>Explore Full Specs & 2D Plans</span>
+                  <a href="#design-detail" class="h-11 px-5 rounded-xl gradient-terracotta text-white font-body text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-md hover:scale-101 transition-all">
+                    <span>View Specs & 2D Floor Plans</span>
                     <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
                   </a>
-                  <a href="#solar-sim" class="h-11 px-4 rounded-xl glass-dark text-white font-technical text-xs font-bold flex items-center gap-2 hover:bg-white/20 transition-all">
+                  <a href="#solar-sim" class="h-11 px-4 rounded-xl bg-white/90 text-on-surface font-technical text-xs font-bold flex items-center gap-2 hover:bg-white transition-all shadow-sm">
                     <span class="material-symbols-outlined text-[16px] text-primary">wb_sunny</span>
                     <span>360° Solar Sim</span>
                   </a>
@@ -225,21 +215,21 @@
               </div>
             </div>
 
-            <!-- Right: Instant Hero BOQ Estimator Widget -->
-            <div class="lg:col-span-5 glass-dark p-6 sm:p-8 rounded-3xl flex flex-col justify-between gap-5 border border-white/15">
+            <!-- Right: Bright Clean Instant BOQ Estimator Widget -->
+            <div class="lg:col-span-5 bg-surface-container-low p-6 sm:p-8 rounded-3xl flex flex-col justify-between gap-5 border border-surface-container-highest shadow-sm">
               <div class="flex flex-col gap-1">
                 <div class="flex items-center justify-between">
-                  <span class="font-technical text-xs uppercase font-bold text-tertiary-fixed tracking-wider">Instant Cost Preview</span>
-                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span class="font-technical text-xs uppercase font-bold text-primary tracking-wider">Instant Cost Preview</span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
                 </div>
-                <h3 class="font-headline text-xl text-white font-bold">Quick House Cost Calculator</h3>
-                <p class="font-body text-xs text-secondary-fixed-dim">Select location and plot area to preview estimated costs in Kerala.</p>
+                <h3 class="font-headline text-xl text-on-surface font-bold">Quick House Cost Estimator</h3>
+                <p class="font-body text-xs text-on-surface-variant">Select location and plot area to preview estimated costs in Kerala.</p>
               </div>
 
               <div class="flex flex-col gap-3 font-technical text-xs">
                 <div>
-                  <label class="text-secondary-fixed-dim uppercase text-[10px] block mb-1 font-bold">District</label>
-                  <select id="hero-loc" class="w-full h-10 px-3 rounded-xl bg-black/40 text-white font-technical border border-white/20 focus:outline-none focus:border-primary">
+                  <label class="text-on-surface-variant uppercase text-[10px] block mb-1 font-bold">District in Kerala</label>
+                  <select id="hero-loc" class="w-full h-11 px-3.5 rounded-xl bg-white text-on-surface font-technical border border-surface-container-highest focus:outline-none focus:border-primary shadow-xs">
                     <option value="1.0">Kochi / Ernakulam</option>
                     <option value="0.96">Thrissur</option>
                     <option value="0.97">Kozhikode</option>
@@ -249,25 +239,25 @@
                 </div>
 
                 <div>
-                  <label class="text-secondary-fixed-dim uppercase text-[10px] block mb-1 font-bold">Total Built-Up Area</label>
-                  <div class="grid grid-cols-3 gap-1.5" id="hero-size-btns">
-                    <button type="button" data-sqft="1500" class="hero-sqft-btn py-2 rounded-lg bg-white/10 text-white hover:bg-white/20 transition-all text-center">1,500 sqft</button>
-                    <button type="button" data-sqft="2000" class="hero-sqft-btn py-2 rounded-lg bg-primary text-white font-bold shadow-sm text-center selected">2,000 sqft</button>
-                    <button type="button" data-sqft="2800" class="hero-sqft-btn py-2 rounded-lg bg-white/10 text-white hover:bg-white/20 transition-all text-center">2,800 sqft</button>
+                  <label class="text-on-surface-variant uppercase text-[10px] block mb-1 font-bold">Total Built-Up Area</label>
+                  <div class="grid grid-cols-3 gap-2" id="hero-size-btns">
+                    <button type="button" data-sqft="1500" class="hero-sqft-btn py-2.5 rounded-xl bg-white text-on-surface border border-surface-container-highest hover:bg-surface-container-high transition-all text-center">1,500 sqft</button>
+                    <button type="button" data-sqft="2000" class="hero-sqft-btn py-2.5 rounded-xl bg-primary text-white font-bold shadow-xs text-center selected">2,000 sqft</button>
+                    <button type="button" data-sqft="2800" class="hero-sqft-btn py-2.5 rounded-xl bg-white text-on-surface border border-surface-container-highest hover:bg-surface-container-high transition-all text-center">2,800 sqft</button>
                   </div>
                 </div>
               </div>
 
               <!-- Output Box -->
-              <div class="p-4 rounded-2xl bg-black/50 border border-white/15 flex flex-col gap-1 text-center">
-                <span class="font-technical text-[10px] text-secondary-fixed-dim uppercase tracking-wider">Estimated Turnkey Cost</span>
-                <span class="font-technical text-2xl font-bold text-tertiary-fixed" id="hero-cost-output">₹47,00,000 – ₹55,00,000</span>
-                <span class="font-technical text-[11px] text-white/70">~₹2,350 / sq ft (Premium Grade)</span>
+              <div class="p-4 rounded-2xl bg-white border border-surface-container-highest shadow-xs flex flex-col gap-1 text-center">
+                <span class="font-technical text-[10px] text-on-surface-variant uppercase tracking-wider">Estimated Turnkey Construction Cost</span>
+                <span class="font-technical text-2xl font-bold text-primary" id="hero-cost-output">₹47,00,000 – ₹55,00,000</span>
+                <span class="font-technical text-[11px] text-on-surface-variant">~₹2,350 / sq ft (Premium Specification)</span>
               </div>
 
-              <a href="#calculator" class="w-full h-11 rounded-xl gradient-terracotta text-white font-body text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:scale-101 transition-all">
+              <a href="#calculator" class="w-full h-12 rounded-xl gradient-terracotta text-white font-body text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all">
                 <span class="material-symbols-outlined text-[18px]">calculate</span>
-                <span>Open Detailed Live BOQ Calculator</span>
+                <span>Open Detailed BOQ Calculator</span>
               </a>
             </div>
 
@@ -275,32 +265,32 @@
 
           <!-- Trust Pillars Bar -->
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-            <div class="p-4 rounded-2xl glass-dark flex items-center gap-3 border border-white/10">
+            <div class="p-4 rounded-2xl bg-white border border-surface-container-highest flex items-center gap-3 shadow-xs">
               <span class="material-symbols-outlined text-primary text-[24px]">verified</span>
               <div class="flex flex-col">
-                <span class="font-body text-xs font-bold text-white">100% Fixed BOQ</span>
-                <span class="font-technical text-[10px] text-secondary-fixed-dim">0% Cost Overruns</span>
+                <span class="font-body text-xs font-bold text-on-surface">100% Fixed BOQ</span>
+                <span class="font-technical text-[10px] text-on-surface-variant">0% Cost Overruns</span>
               </div>
             </div>
-            <div class="p-4 rounded-2xl glass-dark flex items-center gap-3 border border-white/10">
+            <div class="p-4 rounded-2xl bg-white border border-surface-container-highest flex items-center gap-3 shadow-xs">
               <span class="material-symbols-outlined text-primary text-[24px]">draw</span>
               <div class="flex flex-col">
-                <span class="font-body text-xs font-bold text-white">Kerala House Plans</span>
-                <span class="font-technical text-[10px] text-secondary-fixed-dim">Vastu Compliant</span>
+                <span class="font-body text-xs font-bold text-on-surface">Kerala House Plans</span>
+                <span class="font-technical text-[10px] text-on-surface-variant">Vastu Shastra Norms</span>
               </div>
             </div>
-            <div class="p-4 rounded-2xl glass-dark flex items-center gap-3 border border-white/10">
+            <div class="p-4 rounded-2xl bg-white border border-surface-container-highest flex items-center gap-3 shadow-xs">
               <span class="material-symbols-outlined text-primary text-[24px]">wb_sunny</span>
               <div class="flex flex-col">
-                <span class="font-body text-xs font-bold text-white">360° Sun & Wind Sim</span>
-                <span class="font-technical text-[10px] text-secondary-fixed-dim">Microclimate Thermal</span>
+                <span class="font-body text-xs font-bold text-on-surface">360° Sun & Wind Sim</span>
+                <span class="font-technical text-[10px] text-on-surface-variant">Microclimate Passive</span>
               </div>
             </div>
-            <div class="p-4 rounded-2xl glass-dark flex items-center gap-3 border border-white/10">
+            <div class="p-4 rounded-2xl bg-white border border-surface-container-highest flex items-center gap-3 shadow-xs">
               <span class="material-symbols-outlined text-primary text-[24px]">key</span>
               <div class="flex flex-col">
-                <span class="font-body text-xs font-bold text-white">Turnkey Execution</span>
-                <span class="font-technical text-[10px] text-secondary-fixed-dim">10-Yr Structural Audit</span>
+                <span class="font-body text-xs font-bold text-on-surface">Turnkey Execution</span>
+                <span class="font-technical text-[10px] text-on-surface-variant">Site Quality Audits</span>
               </div>
             </div>
           </div>
@@ -309,7 +299,7 @@
       </section>
 
       <!-- 2. SLEEK ARCHITECTURAL UTILITIES GRID -->
-      <section class="px-4 sm:px-6 py-12 bg-surface-container-low border-b border-surface-container-highest/60">
+      <section class="px-4 sm:px-6 py-12 bg-surface-container-low border-y border-surface-container-highest/60">
         <div class="max-w-7xl mx-auto flex flex-col gap-8">
           <div class="flex flex-col gap-1 text-center max-w-2xl mx-auto">
             <span class="font-technical text-xs uppercase tracking-widest text-primary font-bold">Self-Service Toolset</span>
@@ -318,7 +308,7 @@
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <a href="#calculator" class="p-6 rounded-2xl bg-surface-container-lowest border border-surface-container-highest/60 shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col gap-4 group">
+            <a href="#calculator" class="p-6 rounded-2xl bg-white border border-surface-container-highest shadow-xs hover:shadow-md hover:border-primary/40 transition-all flex flex-col gap-4 group">
               <div class="flex items-center justify-between">
                 <span class="font-technical text-xs font-bold text-primary bg-primary-fixed/40 px-2.5 py-1 rounded-lg">01 / BOQ ENGINE</span>
                 <span class="material-symbols-outlined text-primary text-[28px] group-hover:scale-110 transition-transform">calculate</span>
@@ -333,7 +323,7 @@
               </div>
             </a>
 
-            <a href="#budget" class="p-6 rounded-2xl bg-surface-container-lowest border border-surface-container-highest/60 shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col gap-4 group">
+            <a href="#budget" class="p-6 rounded-2xl bg-white border border-surface-container-highest shadow-xs hover:shadow-md hover:border-primary/40 transition-all flex flex-col gap-4 group">
               <div class="flex items-center justify-between">
                 <span class="font-technical text-xs font-bold text-secondary bg-secondary-container/60 px-2.5 py-1 rounded-lg">02 / CAPITAL</span>
                 <span class="material-symbols-outlined text-secondary text-[28px] group-hover:scale-110 transition-transform">account_balance_wallet</span>
@@ -348,7 +338,7 @@
               </div>
             </a>
 
-            <a href="#designs" class="p-6 rounded-2xl bg-surface-container-lowest border border-surface-container-highest/60 shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col gap-4 group">
+            <a href="#designs" class="p-6 rounded-2xl bg-white border border-surface-container-highest shadow-xs hover:shadow-md hover:border-primary/40 transition-all flex flex-col gap-4 group">
               <div class="flex items-center justify-between">
                 <span class="font-technical text-xs font-bold text-primary bg-primary-fixed/40 px-2.5 py-1 rounded-lg">03 / MONOGRAPH</span>
                 <span class="material-symbols-outlined text-primary text-[28px] group-hover:scale-110 transition-transform">architecture</span>
@@ -363,7 +353,7 @@
               </div>
             </a>
 
-            <a href="#guides" class="p-6 rounded-2xl bg-surface-container-lowest border border-surface-container-highest/60 shadow-sm hover:shadow-md hover:border-primary/40 transition-all flex flex-col gap-4 group">
+            <a href="#guides" class="p-6 rounded-2xl bg-white border border-surface-container-highest shadow-xs hover:shadow-md hover:border-primary/40 transition-all flex flex-col gap-4 group">
               <div class="flex items-center justify-between">
                 <span class="font-technical text-xs font-bold text-secondary bg-secondary-container/60 px-2.5 py-1 rounded-lg">04 / NORMS</span>
                 <span class="material-symbols-outlined text-secondary text-[28px] group-hover:scale-110 transition-transform">straighten</span>
@@ -398,56 +388,59 @@
             <div class="lg:col-span-7 flex flex-col gap-6">
               
               <!-- Step 1: Location -->
-              <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 shadow-sm flex flex-col gap-3">
+              <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest shadow-xs flex flex-col gap-3">
                 <div class="flex items-center justify-between">
                   <span class="font-technical text-xs font-bold uppercase text-on-surface">Step 1: Location (District)</span>
                   <span class="font-technical text-[11px] text-secondary">Labour Tier Index</span>
                 </div>
                 <div class="flex flex-wrap gap-2" id="location-chips">
-                  <button type="button" data-val="kochi" class="loc-btn px-4 py-2.5 rounded-xl font-body text-xs font-semibold bg-inverse-surface text-inverse-on-surface transition-all shadow-sm">Kochi</button>
-                  <button type="button" data-val="ernakulam" class="loc-btn px-4 py-2.5 rounded-xl font-body text-xs font-semibold bg-surface-container-highest text-on-surface hover:bg-surface-container-high transition-all">Ernakulam</button>
-                  <button type="button" data-val="thrissur" class="loc-btn px-4 py-2.5 rounded-xl font-body text-xs font-semibold bg-surface-container-highest text-on-surface hover:bg-surface-container-high transition-all">Thrissur</button>
-                  <button type="button" data-val="kozhikode" class="loc-btn px-4 py-2.5 rounded-xl font-body text-xs font-semibold bg-surface-container-highest text-on-surface hover:bg-surface-container-high transition-all">Kozhikode</button>
-                  <button type="button" data-val="kannur" class="loc-btn px-4 py-2.5 rounded-xl font-body text-xs font-semibold bg-surface-container-highest text-on-surface hover:bg-surface-container-high transition-all">Kannur</button>
-                  <button type="button" data-val="other" class="loc-btn px-4 py-2.5 rounded-xl font-body text-xs font-semibold bg-surface-container-highest text-on-surface hover:bg-surface-container-high transition-all">Other Kerala</button>
+                  <button type="button" data-val="kochi" class="loc-btn px-4 py-2.5 rounded-xl font-body text-xs font-bold bg-primary text-white shadow-xs border border-primary transition-all">Kochi</button>
+                  <button type="button" data-val="ernakulam" class="loc-btn px-4 py-2.5 rounded-xl font-body text-xs font-semibold bg-white border border-surface-container-highest text-on-surface hover:bg-surface-container-high transition-all">Ernakulam</button>
+                  <button type="button" data-val="thrissur" class="loc-btn px-4 py-2.5 rounded-xl font-body text-xs font-semibold bg-white border border-surface-container-highest text-on-surface hover:bg-surface-container-high transition-all">Thrissur</button>
+                  <button type="button" data-val="kozhikode" class="loc-btn px-4 py-2.5 rounded-xl font-body text-xs font-semibold bg-white border border-surface-container-highest text-on-surface hover:bg-surface-container-high transition-all">Kozhikode</button>
+                  <button type="button" data-val="kannur" class="loc-btn px-4 py-2.5 rounded-xl font-body text-xs font-semibold bg-white border border-surface-container-highest text-on-surface hover:bg-surface-container-high transition-all">Kannur</button>
+                  <button type="button" data-val="other" class="loc-btn px-4 py-2.5 rounded-xl font-body text-xs font-semibold bg-white border border-surface-container-highest text-on-surface hover:bg-surface-container-high transition-all">Other Kerala</button>
                 </div>
               </div>
 
               <!-- Step 2: Total Built-up Area -->
-              <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 shadow-sm flex flex-col gap-3">
+              <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest shadow-xs flex flex-col gap-3">
                 <div class="flex items-center justify-between">
                   <span class="font-technical text-xs font-bold uppercase text-on-surface">Step 2: Total Built-up Area</span>
                   <span class="font-technical text-sm font-bold text-primary" id="sqft-readout">2,000 sq ft</span>
                 </div>
                 <div class="grid grid-cols-3 gap-2.5" id="size-chips">
-                  <button type="button" data-sqft="1000" class="size-btn py-3 px-2 rounded-xl font-technical text-xs bg-surface-container-highest text-on-surface transition-all">1,000 sq ft</button>
-                  <button type="button" data-sqft="1500" class="size-btn py-3 px-2 rounded-xl font-technical text-xs bg-surface-container-highest text-on-surface transition-all">1,500 sq ft</button>
-                  <button type="button" data-sqft="2000" class="size-btn py-3 px-2 rounded-xl font-technical text-xs bg-inverse-surface text-inverse-on-surface font-bold transition-all selected shadow-sm">2,000 sq ft</button>
-                  <button type="button" data-sqft="2500" class="size-btn py-3 px-2 rounded-xl font-technical text-xs bg-surface-container-highest text-on-surface transition-all">2,500 sq ft</button>
-                  <button type="button" data-sqft="3000" class="size-btn py-3 px-2 rounded-xl font-technical text-xs bg-surface-container-highest text-on-surface transition-all">3,000 sq ft</button>
-                  <button type="button" data-sqft="3500" class="size-btn py-3 px-2 rounded-xl font-technical text-xs bg-surface-container-highest text-on-surface transition-all">3,500+ sq ft</button>
+                  <button type="button" data-sqft="1000" class="size-btn py-3 px-2 rounded-xl font-technical text-xs bg-white border border-surface-container-highest text-on-surface transition-all">1,000 sq ft</button>
+                  <button type="button" data-sqft="1500" class="size-btn py-3 px-2 rounded-xl font-technical text-xs bg-white border border-surface-container-highest text-on-surface transition-all">1,500 sq ft</button>
+                  <button type="button" data-sqft="2000" class="size-btn py-3 px-2 rounded-xl font-technical text-xs bg-primary text-white font-bold border border-primary transition-all selected shadow-xs">2,000 sq ft</button>
+                  <button type="button" data-sqft="2500" class="size-btn py-3 px-2 rounded-xl font-technical text-xs bg-white border border-surface-container-highest text-on-surface transition-all">2,500 sq ft</button>
+                  <button type="button" data-sqft="3000" class="size-btn py-3 px-2 rounded-xl font-technical text-xs bg-white border border-surface-container-highest text-on-surface transition-all">3,000 sq ft</button>
+                  <button type="button" data-sqft="3500" class="size-btn py-3 px-2 rounded-xl font-technical text-xs bg-white border border-surface-container-highest text-on-surface transition-all">3,500+ sq ft</button>
                 </div>
               </div>
 
               <!-- Step 3: Specification Grade -->
-              <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 shadow-sm flex flex-col gap-3">
+              <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest shadow-xs flex flex-col gap-3">
                 <span class="font-technical text-xs font-bold uppercase text-on-surface">Step 3: Specification Grade</span>
                 <div class="flex flex-col gap-3" id="quality-cards">
-                  <div data-rate="1850" class="quality-card p-4 rounded-2xl bg-surface-container-highest cursor-pointer flex items-center justify-between transition-all hover:bg-surface-container-high border border-transparent">
+                  <div data-rate="1850" class="quality-card p-4 rounded-2xl bg-white border border-surface-container-highest cursor-pointer flex items-center justify-between transition-all hover:bg-surface-container-high">
                     <div class="flex flex-col">
                       <span class="font-body text-sm font-bold text-on-surface">Standard Finish</span>
                       <span class="font-body text-xs text-on-surface-variant">Fe500 steel, wire-cut bricks, Asian Paints interior</span>
                     </div>
                     <span class="font-technical text-xs font-bold text-primary">~₹1,850/sqft</span>
                   </div>
-                  <div data-rate="2250" class="quality-card p-4 rounded-2xl bg-inverse-surface text-inverse-on-surface shadow-md cursor-pointer flex items-center justify-between transition-all selected border border-primary">
+                  <div data-rate="2250" class="quality-card p-4 rounded-2xl bg-primary/5 border-2 border-primary text-on-surface shadow-xs cursor-pointer flex items-center justify-between transition-all selected">
                     <div class="flex flex-col">
-                      <span class="font-body text-sm font-bold text-surface-bright">Premium (Recommended)</span>
-                      <span class="font-body text-xs text-secondary-fixed-dim">Laterite masonry, teak frame joinery, Kohler fittings</span>
+                      <span class="font-body text-sm font-bold text-on-surface flex items-center gap-2">
+                        <span>Premium (Recommended)</span>
+                        <span class="px-2 py-0.5 rounded-md bg-primary text-white text-[10px] uppercase font-bold">Best Value</span>
+                      </span>
+                      <span class="font-body text-xs text-on-surface-variant">Laterite masonry, teak frame joinery, Kohler fittings</span>
                     </div>
-                    <span class="font-technical text-xs font-bold text-tertiary-fixed">~₹2,250/sqft</span>
+                    <span class="font-technical text-xs font-bold text-primary">~₹2,250/sqft</span>
                   </div>
-                  <div data-rate="2750" class="quality-card p-4 rounded-2xl bg-surface-container-highest cursor-pointer flex items-center justify-between transition-all hover:bg-surface-container-high border border-transparent">
+                  <div data-rate="2750" class="quality-card p-4 rounded-2xl bg-white border border-surface-container-highest cursor-pointer flex items-center justify-between transition-all hover:bg-surface-container-high">
                     <div class="flex flex-col">
                       <span class="font-body text-sm font-bold text-on-surface">Luxury Crafted</span>
                       <span class="font-body text-xs text-on-surface-variant">Imported marble, Nadumuttam courtyard, Smart HVAC</span>
@@ -459,91 +452,93 @@
 
               <!-- Floors & Bedrooms Grid -->
               <div class="grid grid-cols-2 gap-4">
-                <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 shadow-sm flex flex-col gap-2">
+                <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest shadow-xs flex flex-col gap-2">
                   <span class="font-technical text-xs font-bold uppercase text-on-surface">Floors</span>
                   <div class="flex flex-col gap-1.5" id="floor-chips">
-                    <button type="button" data-mult="1.0" class="floor-btn py-2.5 px-3 rounded-xl text-left font-body text-xs bg-surface-container-highest text-on-surface">Ground Only</button>
-                    <button type="button" data-mult="1.05" class="floor-btn py-2.5 px-3 rounded-xl text-left font-body text-xs font-bold bg-inverse-surface text-inverse-on-surface selected">G + 1 Floor</button>
-                    <button type="button" data-mult="1.12" class="floor-btn py-2.5 px-3 rounded-xl text-left font-body text-xs bg-surface-container-highest text-on-surface">G + 2 Floors</button>
+                    <button type="button" data-mult="1.0" class="floor-btn py-2.5 px-3 rounded-xl text-left font-body text-xs bg-white border border-surface-container-highest text-on-surface">Ground Only</button>
+                    <button type="button" data-mult="1.05" class="floor-btn py-2.5 px-3 rounded-xl text-left font-body text-xs font-bold bg-primary text-white border border-primary selected shadow-xs">G + 1 Floor</button>
+                    <button type="button" data-mult="1.12" class="floor-btn py-2.5 px-3 rounded-xl text-left font-body text-xs bg-white border border-surface-container-highest text-on-surface">G + 2 Floors</button>
                   </div>
                 </div>
-                <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 shadow-sm flex flex-col gap-2">
+                <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest shadow-xs flex flex-col gap-2">
                   <span class="font-technical text-xs font-bold uppercase text-on-surface">Bedrooms</span>
                   <div class="flex flex-col gap-1.5" id="bhk-chips">
-                    <button type="button" data-bhk="2" class="bhk-btn py-2.5 px-3 rounded-xl text-left font-body text-xs bg-surface-container-highest text-on-surface">2 BHK</button>
-                    <button type="button" data-bhk="3" class="bhk-btn py-2.5 px-3 rounded-xl text-left font-body text-xs bg-surface-container-highest text-on-surface">3 BHK</button>
-                    <button type="button" data-bhk="4" class="bhk-btn py-2.5 px-3 rounded-xl text-left font-body text-xs font-bold bg-inverse-surface text-inverse-on-surface selected">4 BHK</button>
-                    <button type="button" data-bhk="5" class="bhk-btn py-2.5 px-3 rounded-xl text-left font-body text-xs bg-surface-container-highest text-on-surface">5+ BHK</button>
+                    <button type="button" data-bhk="2" class="bhk-btn py-2.5 px-3 rounded-xl text-left font-body text-xs bg-white border border-surface-container-highest text-on-surface">2 BHK</button>
+                    <button type="button" data-bhk="3" class="bhk-btn py-2.5 px-3 rounded-xl text-left font-body text-xs bg-white border border-surface-container-highest text-on-surface">3 BHK</button>
+                    <button type="button" data-bhk="4" class="bhk-btn py-2.5 px-3 rounded-xl text-left font-body text-xs font-bold bg-primary text-white border border-primary selected shadow-xs">4 BHK</button>
+                    <button type="button" data-bhk="5" class="bhk-btn py-2.5 px-3 rounded-xl text-left font-body text-xs bg-white border border-surface-container-highest text-on-surface">5+ BHK</button>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- Right Results Output Column -->
-            <div class="lg:col-span-5">
-              <div class="sticky top-20 p-6 sm:p-8 rounded-3xl bg-inverse-surface text-inverse-on-surface shadow-2xl flex flex-col gap-6 border border-white/10">
-                <div class="flex flex-col gap-1 border-b border-surface-container-highest/20 pb-5">
-                  <span class="font-technical text-xs text-tertiary-fixed tracking-wider uppercase font-bold">Estimated Construction Cost</span>
-                  <span class="font-technical text-3xl sm:text-4xl text-surface-bright font-bold tracking-tight" id="result-cost-range">₹47,00,000 – ₹55,00,000</span>
-                  <span class="font-technical text-xs text-secondary-fixed-dim mt-1" id="result-sqft-rate">Approximate rate: ₹2,350 – ₹2,750 / sq ft</span>
+              <div class="sticky top-20 p-6 sm:p-8 rounded-3xl bg-white text-on-surface shadow-xl flex flex-col gap-6 border-2 border-primary/20 bg-gradient-to-b from-primary/5 via-white to-surface-container-low">
+                <div class="flex flex-col gap-1 border-b border-surface-container-highest pb-5">
+                  <span class="font-technical text-xs text-primary tracking-wider uppercase font-bold flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                    Estimated Construction Cost
+                  </span>
+                  <span class="font-technical text-3xl sm:text-4xl text-primary font-bold tracking-tight" id="result-cost-range">₹47,00,000 – ₹55,00,000</span>
+                  <span class="font-technical text-xs text-on-surface-variant mt-1" id="result-sqft-rate">Approximate rate: ₹2,350 – ₹2,750 / sq ft</span>
                 </div>
 
                 <!-- Stage Breakdown Bars -->
                 <div class="flex flex-col gap-3">
-                  <span class="font-body text-xs font-bold uppercase tracking-wider text-surface-bright">Stage-Wise BOQ Breakdown</span>
+                  <span class="font-body text-xs font-bold uppercase tracking-wider text-on-surface">Stage-Wise BOQ Breakdown</span>
                   <div class="space-y-3.5 font-technical text-xs">
                     <div>
                       <div class="flex justify-between pb-1">
-                        <span class="text-secondary-fixed-dim">01 Structure (Foundation & RCC)</span>
-                        <span class="text-surface-bright font-bold" id="bd-struct">₹14.5L</span>
+                        <span class="text-on-surface-variant">01 Structure (Foundation & RCC)</span>
+                        <span class="text-on-surface font-bold" id="bd-struct">₹14.5L</span>
                       </div>
-                      <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
-                        <div class="h-full bg-primary-fixed-dim" style="width: 32%"></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="flex justify-between pb-1">
-                        <span class="text-secondary-fixed-dim">02 Masonry & Laterite Materials</span>
-                        <span class="text-surface-bright font-bold" id="bd-mat">₹10.2L</span>
-                      </div>
-                      <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
-                        <div class="h-full bg-primary" style="width: 22%"></div>
+                      <div class="w-full h-2.5 rounded-full bg-surface-container-highest overflow-hidden">
+                        <div class="h-full bg-primary" style="width: 32%"></div>
                       </div>
                     </div>
                     <div>
                       <div class="flex justify-between pb-1">
-                        <span class="text-secondary-fixed-dim">03 Skilled Kerala Labour</span>
-                        <span class="text-surface-bright font-bold" id="bd-lab">₹7.5L</span>
+                        <span class="text-on-surface-variant">02 Masonry & Laterite Materials</span>
+                        <span class="text-on-surface font-bold" id="bd-mat">₹10.2L</span>
                       </div>
-                      <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
-                        <div class="h-full bg-secondary-fixed" style="width: 16%"></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div class="flex justify-between pb-1">
-                        <span class="text-secondary-fixed-dim">04 Teak Doors & Windows</span>
-                        <span class="text-surface-bright font-bold" id="bd-door">₹4.5L</span>
-                      </div>
-                      <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
-                        <div class="h-full bg-tertiary-container" style="width: 10%"></div>
+                      <div class="w-full h-2.5 rounded-full bg-surface-container-highest overflow-hidden">
+                        <div class="h-full bg-primary-hover" style="width: 22%"></div>
                       </div>
                     </div>
                     <div>
                       <div class="flex justify-between pb-1">
-                        <span class="text-secondary-fixed-dim">05 Electrical & Plumbing (MEP)</span>
-                        <span class="text-surface-bright font-bold" id="bd-serv">₹6.3L</span>
+                        <span class="text-on-surface-variant">03 Skilled Kerala Labour</span>
+                        <span class="text-on-surface font-bold" id="bd-lab">₹7.5L</span>
                       </div>
-                      <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
-                        <div class="h-full bg-primary-fixed" style="width: 13%"></div>
+                      <div class="w-full h-2.5 rounded-full bg-surface-container-highest overflow-hidden">
+                        <div class="h-full bg-secondary" style="width: 16%"></div>
                       </div>
                     </div>
                     <div>
                       <div class="flex justify-between pb-1">
-                        <span class="text-secondary-fixed-dim">06 Finishing & Modular Kitchen</span>
-                        <span class="text-surface-bright font-bold" id="bd-fin">₹5.0L</span>
+                        <span class="text-on-surface-variant">04 Teak Doors & Windows</span>
+                        <span class="text-on-surface font-bold" id="bd-door">₹4.5L</span>
                       </div>
-                      <div class="w-full h-2 rounded-full bg-white/10 overflow-hidden">
-                        <div class="h-full bg-secondary-fixed-dim" style="width: 11%"></div>
+                      <div class="w-full h-2.5 rounded-full bg-surface-container-highest overflow-hidden">
+                        <div class="h-full bg-primary-container" style="width: 10%"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between pb-1">
+                        <span class="text-on-surface-variant">05 Electrical & Plumbing (MEP)</span>
+                        <span class="text-on-surface font-bold" id="bd-serv">₹6.3L</span>
+                      </div>
+                      <div class="w-full h-2.5 rounded-full bg-surface-container-highest overflow-hidden">
+                        <div class="h-full bg-secondary-container" style="width: 13%"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="flex justify-between pb-1">
+                        <span class="text-on-surface-variant">06 Finishing & Modular Kitchen</span>
+                        <span class="text-on-surface font-bold" id="bd-fin">₹5.0L</span>
+                      </div>
+                      <div class="w-full h-2.5 rounded-full bg-surface-container-highest overflow-hidden">
+                        <div class="h-full bg-surface-dim" style="width: 11%"></div>
                       </div>
                     </div>
                   </div>
@@ -551,11 +546,11 @@
 
                 <!-- CTAs -->
                 <div class="flex flex-col gap-2.5 pt-2">
-                  <a href="#contact" class="w-full h-12 rounded-xl gradient-terracotta text-white font-body text-sm font-semibold flex items-center justify-center gap-2 shadow-md hover:scale-101 transition-all">
+                  <a href="#contact" class="w-full h-12 rounded-xl gradient-terracotta text-white font-body text-sm font-semibold flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all">
                     <span class="material-symbols-outlined text-[18px]">verified</span>
                     <span>Get Detailed BOQ Estimate</span>
                   </a>
-                  <button type="button" id="save-pdf-btn" class="w-full h-11 rounded-xl bg-white/10 text-surface-bright font-body text-xs font-medium flex items-center justify-center gap-2 hover:bg-white/20 transition-all">
+                  <button type="button" id="save-pdf-btn" class="w-full h-11 rounded-xl bg-surface-container text-on-surface font-body text-xs font-medium flex items-center justify-center gap-2 hover:bg-surface-container-high transition-all border border-surface-container-highest">
                     <span class="material-symbols-outlined text-[18px]">download</span>
                     <span id="pdf-btn-text">Save Estimate (PDF Breakdown)</span>
                   </button>
@@ -577,15 +572,15 @@
 
           <!-- Budget Tabs -->
           <div class="flex overflow-x-auto gap-2 py-1 no-scrollbar" id="budget-tabs">
-            <button type="button" data-budget="25" class="budget-tab-btn whitespace-nowrap px-5 py-2.5 rounded-xl font-technical text-xs font-semibold bg-surface-container-highest text-on-surface transition-all">₹25 Lakhs</button>
-            <button type="button" data-budget="35" class="budget-tab-btn whitespace-nowrap px-5 py-2.5 rounded-xl font-technical text-xs font-semibold bg-surface-container-highest text-on-surface transition-all">₹35 Lakhs</button>
-            <button type="button" data-budget="50" class="budget-tab-btn whitespace-nowrap px-5 py-2.5 rounded-xl font-technical text-xs font-bold bg-inverse-surface text-inverse-on-surface transition-all selected shadow-sm">₹50 Lakhs</button>
-            <button type="button" data-budget="75" class="budget-tab-btn whitespace-nowrap px-5 py-2.5 rounded-xl font-technical text-xs font-semibold bg-surface-container-highest text-on-surface transition-all">₹75 Lakhs</button>
-            <button type="button" data-budget="100" class="budget-tab-btn whitespace-nowrap px-5 py-2.5 rounded-xl font-technical text-xs font-semibold bg-surface-container-highest text-on-surface transition-all">₹1 Crore+</button>
+            <button type="button" data-budget="25" class="budget-tab-btn whitespace-nowrap px-5 py-2.5 rounded-xl font-technical text-xs font-semibold bg-white border border-surface-container-highest text-on-surface transition-all">₹25 Lakhs</button>
+            <button type="button" data-budget="35" class="budget-tab-btn whitespace-nowrap px-5 py-2.5 rounded-xl font-technical text-xs font-semibold bg-white border border-surface-container-highest text-on-surface transition-all">₹35 Lakhs</button>
+            <button type="button" data-budget="50" class="budget-tab-btn whitespace-nowrap px-5 py-2.5 rounded-xl font-technical text-xs font-bold bg-primary text-white transition-all selected shadow-xs border border-primary">₹50 Lakhs</button>
+            <button type="button" data-budget="75" class="budget-tab-btn whitespace-nowrap px-5 py-2.5 rounded-xl font-technical text-xs font-semibold bg-white border border-surface-container-highest text-on-surface transition-all">₹75 Lakhs</button>
+            <button type="button" data-budget="100" class="budget-tab-btn whitespace-nowrap px-5 py-2.5 rounded-xl font-technical text-xs font-semibold bg-white border border-surface-container-highest text-on-surface transition-all">₹1 Crore+</button>
           </div>
 
           <!-- Concept Card -->
-          <div id="budget-preview-card" class="p-6 sm:p-8 rounded-3xl bg-surface-container-lowest shadow-sm flex flex-col gap-5 border border-surface-container-highest/60 transition-all">
+          <div id="budget-preview-card" class="p-6 sm:p-8 rounded-3xl bg-white shadow-xs flex flex-col gap-5 border border-surface-container-highest transition-all">
             <div class="flex items-center justify-between">
               <span class="font-headline text-xl font-bold text-on-surface" id="b-title">2,000–2,500 sq ft • Premium Kerala Residence</span>
               <span class="px-3.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-technical text-[10px] uppercase font-bold" id="b-tag">Popular</span>
@@ -622,7 +617,7 @@
 
           <!-- Design Category Filters -->
           <div class="flex overflow-x-auto gap-2 py-1 no-scrollbar" id="design-filters">
-            <button type="button" data-filter="all" class="design-filter-btn px-4 py-2 rounded-xl font-body text-xs font-semibold bg-inverse-surface text-inverse-on-surface whitespace-nowrap selected">All Styles</button>
+            <button type="button" data-filter="all" class="design-filter-btn px-4 py-2 rounded-xl font-body text-xs font-semibold bg-primary text-white border border-primary whitespace-nowrap selected">All Styles</button>
             <button type="button" data-filter="tropical" class="design-filter-btn px-4 py-2 rounded-xl font-body text-xs font-semibold bg-surface-container text-on-surface whitespace-nowrap hover:bg-surface-container-high">Modern Tropical</button>
             <button type="button" data-filter="traditional" class="design-filter-btn px-4 py-2 rounded-xl font-body text-xs font-semibold bg-surface-container text-on-surface whitespace-nowrap hover:bg-surface-container-high">Traditional Kerala</button>
             <button type="button" data-filter="minimalist" class="design-filter-btn px-4 py-2 rounded-xl font-body text-xs font-semibold bg-surface-container text-on-surface whitespace-nowrap hover:bg-surface-container-high">Minimalist Laterite</button>
@@ -632,12 +627,12 @@
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="design-cards-container">
             
             <!-- Design Card 1: The Courtyard Villa (Flagship) -->
-            <div data-category="tropical" class="design-item rounded-3xl bg-surface-container-low overflow-hidden shadow-sm border border-surface-container-highest/60 flex flex-col group hover:shadow-md transition-all">
-              <div class="relative w-full aspect-[16/10] bg-inverse-surface overflow-hidden">
+            <div data-category="tropical" class="design-item rounded-3xl bg-white overflow-hidden shadow-xs border border-surface-container-highest flex flex-col group hover:shadow-md transition-all">
+              <div class="relative w-full aspect-[16/10] bg-surface-container-low overflow-hidden">
                 <img src="./interior_view_of_a_modern_tropical_kerala_courtyard_house_with_natural_sunlight/screen.png" 
                      alt="The Courtyard Villa" 
                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
-                <span class="absolute top-3 left-3 px-3 py-1 rounded-full glass-dark text-inverse-on-surface font-technical text-[10px] uppercase font-bold">Featured • Courtyard</span>
+                <span class="absolute top-3 left-3 px-3 py-1 rounded-full glass-light text-on-surface font-technical text-[10px] uppercase font-bold">Featured • Courtyard</span>
               </div>
               <div class="p-6 flex flex-col gap-4 flex-1 justify-between">
                 <div class="flex flex-col gap-1">
@@ -651,11 +646,11 @@
                   </p>
                 </div>
                 <div class="flex items-center gap-2 pt-3 border-t border-surface-container-highest">
-                  <a href="#design-detail" class="flex-1 h-11 rounded-xl gradient-terracotta text-white font-body text-xs font-semibold flex items-center justify-center gap-1 shadow-sm hover:scale-101 transition-all">
+                  <a href="#design-detail" class="flex-1 h-11 rounded-xl gradient-terracotta text-white font-body text-xs font-semibold flex items-center justify-center gap-1 shadow-xs hover:shadow-sm transition-all">
                     <span>View Specs & Plans</span>
                     <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
                   </a>
-                  <a href="#solar-sim" class="px-3.5 h-11 rounded-xl bg-surface-container-highest text-on-surface font-technical text-xs font-bold flex items-center justify-center gap-1 hover:bg-surface-container-high transition-all" title="Launch 360 Simulation">
+                  <a href="#solar-sim" class="px-3.5 h-11 rounded-xl bg-surface-container-high text-on-surface font-technical text-xs font-bold flex items-center justify-center gap-1 hover:bg-surface-container-highest transition-all" title="Launch 360 Simulation">
                     <span class="material-symbols-outlined text-[16px] text-primary">wb_sunny</span>
                     <span>360° Sim</span>
                   </a>
@@ -664,12 +659,12 @@
             </div>
 
             <!-- Design Card 2: Modern Sloped Roof Residence -->
-            <div data-category="traditional" class="design-item rounded-3xl bg-surface-container-low overflow-hidden shadow-sm border border-surface-container-highest/60 flex flex-col group hover:shadow-md transition-all">
-              <div class="relative w-full aspect-[16/10] bg-inverse-surface overflow-hidden">
+            <div data-category="traditional" class="design-item rounded-3xl bg-white overflow-hidden shadow-xs border border-surface-container-highest flex flex-col group hover:shadow-md transition-all">
+              <div class="relative w-full aspect-[16/10] bg-surface-container-low overflow-hidden">
                 <img src="./architectural_twilight_night_time_exterior_and_courtyard_lighting_scene_of_a/screen.png" 
                      alt="Modern Sloped Roof Residence" 
                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
-                <span class="absolute top-3 left-3 px-3 py-1 rounded-full glass-dark text-inverse-on-surface font-technical text-[10px] uppercase font-bold">Traditional Kerala</span>
+                <span class="absolute top-3 left-3 px-3 py-1 rounded-full glass-light text-on-surface font-technical text-[10px] uppercase font-bold">Traditional Kerala</span>
               </div>
               <div class="p-6 flex flex-col gap-4 flex-1 justify-between">
                 <div class="flex flex-col gap-1">
@@ -683,10 +678,10 @@
                   </p>
                 </div>
                 <div class="flex items-center gap-2 pt-3 border-t border-surface-container-highest">
-                  <a href="#calculator" class="flex-1 h-11 rounded-xl bg-surface-container-highest text-on-surface font-body text-xs font-semibold flex items-center justify-center gap-1 hover:bg-surface-container-high transition-all">
+                  <a href="#calculator" class="flex-1 h-11 rounded-xl bg-surface-container-high text-on-surface font-body text-xs font-semibold flex items-center justify-center gap-1 hover:bg-surface-container-highest transition-all">
                     <span>Calculate Cost</span>
                   </a>
-                  <a href="#design-detail" class="flex-1 h-11 rounded-xl gradient-terracotta text-white font-body text-xs font-semibold flex items-center justify-center gap-1 shadow-sm hover:scale-101 transition-all">
+                  <a href="#design-detail" class="flex-1 h-11 rounded-xl gradient-terracotta text-white font-body text-xs font-semibold flex items-center justify-center gap-1 shadow-xs hover:shadow-sm transition-all">
                     <span>View Specs</span>
                     <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
                   </a>
@@ -695,12 +690,12 @@
             </div>
 
             <!-- Design Card 3: Minimalist Laterite Villa -->
-            <div data-category="minimalist" class="design-item rounded-3xl bg-surface-container-low overflow-hidden shadow-sm border border-surface-container-highest/60 flex flex-col group hover:shadow-md transition-all">
-              <div class="relative w-full aspect-[16/10] bg-inverse-surface overflow-hidden">
+            <div data-category="minimalist" class="design-item rounded-3xl bg-white overflow-hidden shadow-xs border border-surface-container-highest flex flex-col group hover:shadow-md transition-all">
+              <div class="relative w-full aspect-[16/10] bg-surface-container-low overflow-hidden">
                 <img src="./architectural_3d_isometric_cutaway_cross_section_diagram_of_a_modern_kerala/screen.png" 
                      alt="Minimalist Laterite Residence" 
                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
-                <span class="absolute top-3 left-3 px-3 py-1 rounded-full glass-dark text-inverse-on-surface font-technical text-[10px] uppercase font-bold">Minimalist Laterite</span>
+                <span class="absolute top-3 left-3 px-3 py-1 rounded-full glass-light text-on-surface font-technical text-[10px] uppercase font-bold">Minimalist Laterite</span>
               </div>
               <div class="p-6 flex flex-col gap-4 flex-1 justify-between">
                 <div class="flex flex-col gap-1">
@@ -714,10 +709,10 @@
                   </p>
                 </div>
                 <div class="flex items-center gap-2 pt-3 border-t border-surface-container-highest">
-                  <a href="#calculator" class="flex-1 h-11 rounded-xl bg-surface-container-highest text-on-surface font-body text-xs font-semibold flex items-center justify-center gap-1 hover:bg-surface-container-high transition-all">
+                  <a href="#calculator" class="flex-1 h-11 rounded-xl bg-surface-container-high text-on-surface font-body text-xs font-semibold flex items-center justify-center gap-1 hover:bg-surface-container-highest transition-all">
                     <span>Calculate Cost</span>
                   </a>
-                  <a href="#design-detail" class="flex-1 h-11 rounded-xl gradient-terracotta text-white font-body text-xs font-semibold flex items-center justify-center gap-1 shadow-sm hover:scale-101 transition-all">
+                  <a href="#design-detail" class="flex-1 h-11 rounded-xl gradient-terracotta text-white font-body text-xs font-semibold flex items-center justify-center gap-1 shadow-xs hover:shadow-sm transition-all">
                     <span>View Specs</span>
                     <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
                   </a>
@@ -740,14 +735,14 @@
 
           <!-- Presets -->
           <div class="grid grid-cols-4 gap-2 max-w-md bg-surface-container-highest p-1 rounded-xl" id="anatomy-presets">
-            <button type="button" data-val="30" class="anatomy-btn py-2 rounded-lg font-technical text-xs bg-surface text-on-surface transition-all">₹30L</button>
-            <button type="button" data-val="50" class="anatomy-btn py-2 rounded-lg font-technical text-xs font-bold bg-inverse-surface text-inverse-on-surface selected transition-all shadow-sm">₹50L</button>
-            <button type="button" data-val="75" class="anatomy-btn py-2 rounded-lg font-technical text-xs bg-surface text-on-surface transition-all">₹75L</button>
-            <button type="button" data-val="100" class="anatomy-btn py-2 rounded-lg font-technical text-xs bg-surface text-on-surface transition-all">₹1Cr</button>
+            <button type="button" data-val="30" class="anatomy-btn py-2 rounded-lg font-technical text-xs bg-white text-on-surface transition-all">₹30L</button>
+            <button type="button" data-val="50" class="anatomy-btn py-2 rounded-lg font-technical text-xs font-bold bg-primary text-white selected transition-all shadow-xs">₹50L</button>
+            <button type="button" data-val="75" class="anatomy-btn py-2 rounded-lg font-technical text-xs bg-white text-on-surface transition-all">₹75L</button>
+            <button type="button" data-val="100" class="anatomy-btn py-2 rounded-lg font-technical text-xs bg-white text-on-surface transition-all">₹1Cr</button>
           </div>
 
           <!-- Distribution Card -->
-          <div class="p-6 sm:p-8 rounded-3xl bg-surface-container-lowest shadow-sm border border-surface-container-highest/60 flex flex-col gap-5">
+          <div class="p-6 sm:p-8 rounded-3xl bg-white shadow-xs border border-surface-container-highest flex flex-col gap-5">
             <div class="w-full h-4 rounded-full bg-surface-container-high flex overflow-hidden">
               <div class="h-full bg-primary" id="bar-struct" style="width: 35%" title="Structure 35%"></div>
               <div class="h-full bg-tertiary-container" id="bar-mat" style="width: 25%" title="Masonry 25%"></div>
@@ -788,7 +783,7 @@
 
           <div class="flex flex-col gap-3" id="timeline-accordion">
             <!-- Step 01 -->
-            <div class="timeline-step rounded-2xl bg-surface-container-low overflow-hidden border border-surface-container-highest/60 transition-all">
+            <div class="timeline-step rounded-2xl bg-surface-container-low overflow-hidden border border-surface-container-highest transition-all">
               <button type="button" class="step-header w-full p-4 sm:p-5 flex items-center justify-between text-left hover:bg-surface-container transition-colors">
                 <div class="flex items-center gap-3">
                   <span class="font-technical text-xs font-bold text-primary bg-primary-fixed/40 px-2.5 py-1 rounded-lg">01</span>
@@ -805,7 +800,7 @@
             </div>
 
             <!-- Step 02 -->
-            <div class="timeline-step rounded-2xl bg-surface-container-low overflow-hidden border border-surface-container-highest/60 transition-all">
+            <div class="timeline-step rounded-2xl bg-surface-container-low overflow-hidden border border-surface-container-highest transition-all">
               <button type="button" class="step-header w-full p-4 sm:p-5 flex items-center justify-between text-left hover:bg-surface-container transition-colors">
                 <div class="flex items-center gap-3">
                   <span class="font-technical text-xs font-bold text-primary bg-primary-fixed/40 px-2.5 py-1 rounded-lg">02</span>
@@ -819,7 +814,7 @@
             </div>
 
             <!-- Step 03 -->
-            <div class="timeline-step rounded-2xl bg-surface-container-low overflow-hidden border border-surface-container-highest/60 transition-all">
+            <div class="timeline-step rounded-2xl bg-surface-container-low overflow-hidden border border-surface-container-highest transition-all">
               <button type="button" class="step-header w-full p-4 sm:p-5 flex items-center justify-between text-left hover:bg-surface-container transition-colors">
                 <div class="flex items-center gap-3">
                   <span class="font-technical text-xs font-bold text-primary bg-primary-fixed/40 px-2.5 py-1 rounded-lg">03</span>
@@ -833,7 +828,7 @@
             </div>
 
             <!-- Step 04 -->
-            <div class="timeline-step rounded-2xl bg-surface-container-low overflow-hidden border border-surface-container-highest/60 transition-all">
+            <div class="timeline-step rounded-2xl bg-surface-container-low overflow-hidden border border-surface-container-highest transition-all">
               <button type="button" class="step-header w-full p-4 sm:p-5 flex items-center justify-between text-left hover:bg-surface-container transition-colors">
                 <div class="flex items-center gap-3">
                   <span class="font-technical text-xs font-bold text-primary bg-primary-fixed/40 px-2.5 py-1 rounded-lg">04</span>
@@ -847,7 +842,7 @@
             </div>
 
             <!-- Step 05 -->
-            <div class="timeline-step rounded-2xl bg-surface-container-low overflow-hidden border border-surface-container-highest/60 transition-all">
+            <div class="timeline-step rounded-2xl bg-surface-container-low overflow-hidden border border-surface-container-highest transition-all">
               <button type="button" class="step-header w-full p-4 sm:p-5 flex items-center justify-between text-left hover:bg-surface-container transition-colors">
                 <div class="flex items-center gap-3">
                   <span class="font-technical text-xs font-bold text-primary bg-primary-fixed/40 px-2.5 py-1 rounded-lg">05</span>
@@ -864,7 +859,7 @@
       </section>
 
       <!-- 8. FREQUENTLY ASKED QUESTIONS (FAQ) -->
-      <section class="px-4 sm:px-6 py-14 bg-surface-container-low border-t border-surface-container-highest/60">
+      <section class="px-4 sm:px-6 py-14 bg-surface-container-low border-t border-surface-container-highest">
         <div class="max-w-4xl mx-auto flex flex-col gap-6">
           <div>
             <span class="font-technical text-xs uppercase tracking-widest text-primary font-bold">Frequently Asked Questions</span>
@@ -872,7 +867,7 @@
           </div>
 
           <div class="flex flex-col gap-3">
-            <div class="faq-item rounded-2xl bg-surface-container-lowest border border-surface-container-highest/60 overflow-hidden">
+            <div class="faq-item rounded-2xl bg-white border border-surface-container-highest overflow-hidden shadow-xs">
               <button type="button" class="faq-btn w-full p-5 flex items-center justify-between text-left font-body text-sm font-bold text-on-surface">
                 <span>How do you guarantee 0% cost overruns during construction?</span>
                 <span class="material-symbols-outlined text-primary faq-icon transition-transform">expand_more</span>
@@ -882,7 +877,7 @@
               </div>
             </div>
 
-            <div class="faq-item rounded-2xl bg-surface-container-lowest border border-surface-container-highest/60 overflow-hidden">
+            <div class="faq-item rounded-2xl bg-white border border-surface-container-highest overflow-hidden shadow-xs">
               <button type="button" class="faq-btn w-full p-5 flex items-center justify-between text-left font-body text-sm font-bold text-on-surface">
                 <span>Why is Nadumuttam (Courtyard) architecture recommended for Kerala?</span>
                 <span class="material-symbols-outlined text-primary faq-icon transition-transform">expand_more</span>
@@ -892,7 +887,7 @@
               </div>
             </div>
 
-            <div class="faq-item rounded-2xl bg-surface-container-lowest border border-surface-container-highest/60 overflow-hidden">
+            <div class="faq-item rounded-2xl bg-white border border-surface-container-highest overflow-hidden shadow-xs">
               <button type="button" class="faq-btn w-full p-5 flex items-center justify-between text-left font-body text-sm font-bold text-on-surface">
                 <span>How long does a turnkey 2,000–2,500 sq ft house build take in Kerala?</span>
                 <span class="material-symbols-outlined text-primary faq-icon transition-transform">expand_more</span>
@@ -928,19 +923,19 @@
 
         <!-- Key Metrics Cards -->
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-1">
+          <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest flex flex-col gap-1">
             <span class="font-technical text-3xl sm:text-4xl font-bold text-primary">150+</span>
             <span class="font-body text-xs text-on-surface-variant font-medium uppercase tracking-wider">Kerala Homes Handed Over</span>
           </div>
-          <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-1">
+          <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest flex flex-col gap-1">
             <span class="font-technical text-3xl sm:text-4xl font-bold text-on-surface">100%</span>
             <span class="font-body text-xs text-on-surface-variant font-medium uppercase tracking-wider">Fixed BOQ Itemized Price Lock</span>
           </div>
-          <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-1">
+          <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest flex flex-col gap-1">
             <span class="font-technical text-3xl sm:text-4xl font-bold text-primary">0%</span>
             <span class="font-body text-xs text-on-surface-variant font-medium uppercase tracking-wider">Unplanned Cost Escalation</span>
           </div>
-          <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-1">
+          <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest flex flex-col gap-1">
             <span class="font-technical text-3xl sm:text-4xl font-bold text-on-surface">4.9 ★</span>
             <span class="font-body text-xs text-on-surface-variant font-medium uppercase tracking-wider">Client Satisfaction Rating</span>
           </div>
@@ -950,7 +945,7 @@
         <div class="flex flex-col gap-4">
           <h2 class="font-headline text-2xl sm:text-3xl text-on-surface">Our Core Pillars</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="p-6 rounded-2xl bg-surface-container-lowest border border-surface-container-highest/60 shadow-sm flex flex-col gap-2">
+            <div class="p-6 rounded-2xl bg-white border border-surface-container-highest shadow-xs flex flex-col gap-2">
               <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-1">
                 <span class="material-symbols-outlined text-[24px]">water_drop</span>
               </div>
@@ -960,7 +955,7 @@
               </p>
             </div>
 
-            <div class="p-6 rounded-2xl bg-surface-container-lowest border border-surface-container-highest/60 shadow-sm flex flex-col gap-2">
+            <div class="p-6 rounded-2xl bg-white border border-surface-container-highest shadow-xs flex flex-col gap-2">
               <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-1">
                 <span class="material-symbols-outlined text-[24px]">wb_sunny</span>
               </div>
@@ -970,7 +965,7 @@
               </p>
             </div>
 
-            <div class="p-6 rounded-2xl bg-surface-container-lowest border border-surface-container-highest/60 shadow-sm flex flex-col gap-2">
+            <div class="p-6 rounded-2xl bg-white border border-surface-container-highest shadow-xs flex flex-col gap-2">
               <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-1">
                 <span class="material-symbols-outlined text-[24px]">square_foot</span>
               </div>
@@ -980,7 +975,7 @@
               </p>
             </div>
 
-            <div class="p-6 rounded-2xl bg-surface-container-lowest border border-surface-container-highest/60 shadow-sm flex flex-col gap-2">
+            <div class="p-6 rounded-2xl bg-white border border-surface-container-highest shadow-xs flex flex-col gap-2">
               <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-1">
                 <span class="material-symbols-outlined text-[24px]">verified</span>
               </div>
@@ -996,8 +991,8 @@
         <div class="flex flex-col gap-4">
           <h2 class="font-headline text-2xl sm:text-3xl text-on-surface">Leadership & Senior Architects</h2>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-3">
-              <div class="w-full aspect-[4/3] rounded-xl bg-inverse-surface overflow-hidden">
+            <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest flex flex-col gap-3">
+              <div class="w-full aspect-[4/3] rounded-xl bg-surface-container overflow-hidden">
                 <img src="./interior_view_of_a_modern_tropical_kerala_courtyard_house_with_natural_sunlight/screen.png" alt="Ar. Madhavan Nambiar" class="w-full h-full object-cover"/>
               </div>
               <div>
@@ -1007,8 +1002,8 @@
               </div>
             </div>
 
-            <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-3">
-              <div class="w-full aspect-[4/3] rounded-xl bg-inverse-surface overflow-hidden">
+            <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest flex flex-col gap-3">
+              <div class="w-full aspect-[4/3] rounded-xl bg-surface-container overflow-hidden">
                 <img src="./photorealistic_modern_tropical_villa_in_kerala_india_with_courtyard_natural/screen.png" alt="Er. Priya Varma" class="w-full h-full object-cover"/>
               </div>
               <div>
@@ -1018,26 +1013,26 @@
               </div>
             </div>
 
-            <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-3">
-              <div class="w-full aspect-[4/3] rounded-xl bg-inverse-surface overflow-hidden">
+            <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest flex flex-col gap-3">
+              <div class="w-full aspect-[4/3] rounded-xl bg-surface-container overflow-hidden">
                 <img src="./architectural_twilight_night_time_exterior_and_courtyard_lighting_scene_of_a/screen.png" alt="K. V. Suresh" class="w-full h-full object-cover"/>
               </div>
               <div>
                 <h4 class="font-body text-base font-bold text-on-surface">K. V. Suresh</h4>
-                <span class="font-technical text-xs text-primary font-medium">Head of Turnkey Execution</span>
-                <p class="font-body text-xs text-on-surface-variant mt-2">Oversees 30+ skilled artisan mason crews, teak joinery workshops, and site milestone quality audits.</p>
+                <span class="font-technical text-xs text-primary font-medium">General Manager • Construction Logistics</span>
+                <p class="font-body text-xs text-on-surface-variant mt-2">Overseeing 40+ active project sites across 14 Kerala districts with zero cost-overrun record.</p>
               </div>
             </div>
           </div>
         </div>
 
         <!-- About Bottom CTA -->
-        <div class="p-8 rounded-3xl bg-inverse-surface text-inverse-on-surface flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+        <div class="p-8 rounded-3xl bg-surface-container-high border border-surface-container-highest flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs">
           <div class="flex flex-col gap-1">
-            <h3 class="font-headline text-2xl text-surface-bright font-normal">Want to Build Your Dream Home in Kerala?</h3>
-            <p class="font-body text-xs text-secondary-fixed-dim">Schedule a consultation at our Kochi studio or request an online BOQ estimate.</p>
+            <h3 class="font-headline text-2xl text-on-surface font-normal">Want to Build Your Dream Home in Kerala?</h3>
+            <p class="font-body text-xs text-on-surface-variant">Schedule a consultation at our Kochi studio or request an online BOQ estimate.</p>
           </div>
-          <a href="#contact" class="h-12 px-6 rounded-xl gradient-terracotta text-white font-body text-xs uppercase font-bold tracking-wider flex items-center gap-2 shadow-md hover:scale-102 transition-all whitespace-nowrap">
+          <a href="#contact" class="h-12 px-6 rounded-xl gradient-terracotta text-white font-body text-xs uppercase font-bold tracking-wider flex items-center gap-2 shadow-sm hover:shadow-md active:scale-95 transition-all whitespace-nowrap">
             <span class="material-symbols-outlined text-[18px]">send</span>
             <span>Contact Us Now</span>
           </a>
@@ -1070,7 +1065,7 @@
           
           <!-- Left: Multi-Step Lead Collection Form -->
           <div class="lg:col-span-7 flex flex-col gap-6">
-            <div class="p-6 sm:p-8 rounded-3xl bg-surface-container-low border border-surface-container-highest/60 shadow-sm flex flex-col gap-6">
+            <div class="p-6 sm:p-8 rounded-3xl bg-surface-container-low border border-surface-container-highest shadow-xs flex flex-col gap-6">
               
               <!-- Form Step 1: Project Scope -->
               <div class="flex flex-col gap-3">
@@ -1080,16 +1075,16 @@
                   <label class="font-body text-xs font-bold text-on-surface">What type of project are you planning?</label>
                   <div class="grid grid-cols-2 gap-2" id="form-scope-btns">
                     <button type="button" data-val="new_build" class="scope-btn p-3 rounded-xl font-body text-xs text-left border border-primary bg-primary/10 text-primary font-bold transition-all">New House Build</button>
-                    <button type="button" data-val="plan_only" class="scope-btn p-3 rounded-xl font-body text-xs text-left border border-surface-container-highest bg-surface-container-lowest text-on-surface transition-all">Floor Plan & Design Only</button>
-                    <button type="button" data-val="remodel" class="scope-btn p-3 rounded-xl font-body text-xs text-left border border-surface-container-highest bg-surface-container-lowest text-on-surface transition-all">Remodeling / Extension</button>
-                    <button type="button" data-val="interior" class="scope-btn p-3 rounded-xl font-body text-xs text-left border border-surface-container-highest bg-surface-container-lowest text-on-surface transition-all">Interior & Landscape</button>
+                    <button type="button" data-val="plan_only" class="scope-btn p-3 rounded-xl font-body text-xs text-left border border-surface-container-highest bg-white text-on-surface transition-all">Floor Plan & Design Only</button>
+                    <button type="button" data-val="remodel" class="scope-btn p-3 rounded-xl font-body text-xs text-left border border-surface-container-highest bg-white text-on-surface transition-all">Remodeling / Extension</button>
+                    <button type="button" data-val="interior" class="scope-btn p-3 rounded-xl font-body text-xs text-left border border-surface-container-highest bg-white text-on-surface transition-all">Interior & Landscape</button>
                   </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
                   <div>
                     <label class="font-body text-xs font-bold text-on-surface block mb-1">Kerala District</label>
-                    <select id="lead-district" class="w-full h-11 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary">
+                    <select id="lead-district" class="w-full h-11 px-3.5 rounded-xl bg-white text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary">
                       <option value="Kochi / Ernakulam">Kochi / Ernakulam</option>
                       <option value="Thrissur">Thrissur</option>
                       <option value="Kozhikode">Kozhikode</option>
@@ -1102,7 +1097,7 @@
                   </div>
                   <div>
                     <label class="font-body text-xs font-bold text-on-surface block mb-1">Land Plot Size (Cents)</label>
-                    <select id="lead-plot" class="w-full h-11 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary">
+                    <select id="lead-plot" class="w-full h-11 px-3.5 rounded-xl bg-white text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary">
                       <option value="5 Cents">5 Cents</option>
                       <option value="8 Cents" selected>8 Cents</option>
                       <option value="12 Cents">12 Cents</option>
@@ -1113,13 +1108,13 @@
               </div>
 
               <!-- Form Step 2: Dimensions & Budget -->
-              <div class="flex flex-col gap-3 pt-4 border-t border-surface-container-highest/60">
+              <div class="flex flex-col gap-3 pt-4 border-t border-surface-container-highest">
                 <span class="font-technical text-xs font-bold text-primary uppercase tracking-wider">Step 2: Dimensions & Budget</span>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label class="font-body text-xs font-bold text-on-surface block mb-1">Expected Built-up Area</label>
-                    <select id="lead-sqft" class="w-full h-11 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary">
+                    <select id="lead-sqft" class="w-full h-11 px-3.5 rounded-xl bg-white text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary">
                       <option value="1,000 – 1,500 sq ft">1,000 – 1,500 sq ft</option>
                       <option value="1,500 – 2,000 sq ft">1,500 – 2,000 sq ft</option>
                       <option value="2,000 – 2,500 sq ft" selected>2,000 – 2,500 sq ft</option>
@@ -1129,7 +1124,7 @@
                   </div>
                   <div>
                     <label class="font-body text-xs font-bold text-on-surface block mb-1">Bedrooms (BHK)</label>
-                    <select id="lead-bhk" class="w-full h-11 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary">
+                    <select id="lead-bhk" class="w-full h-11 px-3.5 rounded-xl bg-white text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary">
                       <option value="2 BHK">2 BHK</option>
                       <option value="3 BHK">3 BHK</option>
                       <option value="4 BHK" selected>4 BHK</option>
@@ -1141,7 +1136,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label class="font-body text-xs font-bold text-on-surface block mb-1">Target Start Timeline</label>
-                    <select id="lead-start" class="w-full h-11 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary">
+                    <select id="lead-start" class="w-full h-11 px-3.5 rounded-xl bg-white text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary">
                       <option value="Immediately (Within 30 Days)">Immediately (Within 30 Days)</option>
                       <option value="1–3 Months" selected>1–3 Months</option>
                       <option value="3–6 Months">3–6 Months</option>
@@ -1150,7 +1145,7 @@
                   </div>
                   <div>
                     <label class="font-body text-xs font-bold text-on-surface block mb-1">Estimated Budget Ceiling</label>
-                    <select id="lead-budget" class="w-full h-11 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary">
+                    <select id="lead-budget" class="w-full h-11 px-3.5 rounded-xl bg-white text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary">
                       <option value="₹25L – ₹35L">₹25L – ₹35L</option>
                       <option value="₹35L – ₹50L">₹35L – ₹50L</option>
                       <option value="₹50L – ₹75L" selected>₹50L – ₹75L</option>
@@ -1162,7 +1157,7 @@
               </div>
 
               <!-- Form Step 3: Specific Features -->
-              <div class="flex flex-col gap-3 pt-4 border-t border-surface-container-highest/60">
+              <div class="flex flex-col gap-3 pt-4 border-t border-surface-container-highest">
                 <span class="font-technical text-xs font-bold text-primary uppercase tracking-wider">Step 3: Desired Architectural Features</span>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 font-body text-xs text-on-surface">
@@ -1194,31 +1189,31 @@
 
                 <div class="pt-2">
                   <label class="font-body text-xs font-bold text-on-surface block mb-1">Additional Notes / Special Requirements</label>
-                  <textarea id="lead-notes" rows="3" placeholder="Tell us about your plot slope, preferred wood, or specific room needs..." class="w-full p-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary"></textarea>
+                  <textarea id="lead-notes" rows="3" placeholder="Tell us about your plot slope, preferred wood, or specific room needs..." class="w-full p-3.5 rounded-xl bg-white text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary"></textarea>
                 </div>
               </div>
 
               <!-- Form Step 4: Contact Details -->
-              <div class="flex flex-col gap-3 pt-4 border-t border-surface-container-highest/60">
+              <div class="flex flex-col gap-3 pt-4 border-t border-surface-container-highest">
                 <span class="font-technical text-xs font-bold text-primary uppercase tracking-wider">Step 4: Your Contact Info</span>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label class="font-body text-xs font-bold text-on-surface block mb-1">Full Name *</label>
-                    <input type="text" id="full-lead-name" placeholder="e.g. Anjali Nair" class="w-full h-11 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary"/>
+                    <input type="text" id="full-lead-name" placeholder="e.g. Anjali Nair" class="w-full h-11 px-3.5 rounded-xl bg-white text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary"/>
                   </div>
                   <div>
                     <label class="font-body text-xs font-bold text-on-surface block mb-1">WhatsApp Mobile *</label>
-                    <input type="tel" id="full-lead-phone" placeholder="+91 98765 43210" class="w-full h-11 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary"/>
+                    <input type="tel" id="full-lead-phone" placeholder="+91 98765 43210" class="w-full h-11 px-3.5 rounded-xl bg-white text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary"/>
                   </div>
                 </div>
 
                 <div>
                   <label class="font-body text-xs font-bold text-on-surface block mb-1">Email Address</label>
-                  <input type="email" id="full-lead-email" placeholder="anjali.nair@gmail.com" class="w-full h-11 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary"/>
+                  <input type="email" id="full-lead-email" placeholder="anjali.nair@gmail.com" class="w-full h-11 px-3.5 rounded-xl bg-white text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary"/>
                 </div>
 
-                <button type="button" id="submit-full-lead-btn" class="w-full h-13 py-3 rounded-xl gradient-terracotta text-white font-body text-sm font-bold flex items-center justify-center gap-2 shadow-lg hover:scale-101 transition-all mt-2">
+                <button type="button" id="submit-full-lead-btn" class="w-full h-13 py-3 rounded-xl gradient-terracotta text-white font-body text-sm font-bold flex items-center justify-center gap-2 shadow-sm hover:shadow-md active:scale-[0.99] transition-all mt-2">
                   <span class="material-symbols-outlined text-[20px]">send</span>
                   <span>Submit Lead & Claim Custom Architectural BOQ</span>
                 </button>
@@ -1242,67 +1237,67 @@
           <div class="lg:col-span-5 flex flex-col gap-6">
             
             <!-- Live Summary Card -->
-            <div class="sticky top-20 p-6 rounded-3xl bg-inverse-surface text-inverse-on-surface shadow-2xl flex flex-col gap-5 border border-white/15">
-              <div class="flex flex-col gap-1 border-b border-surface-container-highest/20 pb-4">
-                <span class="font-technical text-[10px] text-tertiary-fixed font-bold uppercase tracking-wider">Live Lead Summary</span>
-                <h3 class="font-headline text-xl text-surface-bright font-normal">Custom Project Dossier</h3>
+            <div class="sticky top-20 p-6 rounded-3xl bg-surface-container-high border border-surface-container-highest shadow-sm flex flex-col gap-5">
+              <div class="flex flex-col gap-1 border-b border-surface-container-highest pb-4">
+                <span class="font-technical text-[10px] text-primary font-bold uppercase tracking-wider">Live Lead Summary</span>
+                <h3 class="font-headline text-xl text-on-surface font-bold">Custom Project Dossier</h3>
               </div>
 
-              <div class="space-y-3 font-technical text-xs text-secondary-fixed-dim">
+              <div class="space-y-3 font-technical text-xs text-on-surface-variant">
                 <div class="flex justify-between">
                   <span>Scope:</span>
-                  <strong class="text-surface-bright" id="prev-scope">New House Build</strong>
+                  <strong class="text-on-surface font-bold" id="prev-scope">New House Build</strong>
                 </div>
                 <div class="flex justify-between">
                   <span>Location:</span>
-                  <strong class="text-surface-bright" id="prev-loc">Kochi / Ernakulam (8 Cents)</strong>
+                  <strong class="text-on-surface font-bold" id="prev-loc">Kochi / Ernakulam (8 Cents)</strong>
                 </div>
                 <div class="flex justify-between">
                   <span>Dimensions:</span>
-                  <strong class="text-surface-bright" id="prev-sqft">2,000–2,500 sq ft (4 BHK)</strong>
+                  <strong class="text-on-surface font-bold" id="prev-sqft">2,000–2,500 sq ft (4 BHK)</strong>
                 </div>
                 <div class="flex justify-between">
                   <span>Budget Target:</span>
-                  <strong class="text-tertiary-fixed font-bold" id="prev-bud">₹50L – ₹75L</strong>
+                  <strong class="text-primary font-bold" id="prev-bud">₹50L – ₹75L</strong>
                 </div>
                 <div class="flex justify-between">
                   <span>Timeline:</span>
-                  <strong class="text-surface-bright" id="prev-start">1–3 Months</strong>
+                  <strong class="text-on-surface font-bold" id="prev-start">1–3 Months</strong>
                 </div>
               </div>
 
-              <div class="p-3.5 rounded-xl bg-white/10 border border-white/15 flex flex-col gap-1 text-[11px]">
-                <span class="text-tertiary-fixed font-bold flex items-center gap-1">
+              <div class="p-3.5 rounded-xl bg-white border border-surface-container-highest flex flex-col gap-1 text-[11px] shadow-xs">
+                <span class="text-primary font-bold flex items-center gap-1">
                   <span class="material-symbols-outlined text-[14px]">lock</span>
                   <span>Fixed Price Protection Guarantee</span>
                 </span>
-                <p class="text-secondary-fixed-dim leading-normal">
+                <p class="text-on-surface-variant leading-normal">
                   All Tattva project leads come with 0% cost escalation lock and structural warranty certificates.
                 </p>
               </div>
 
               <!-- Direct Studio Contacts -->
-              <div class="flex flex-col gap-3 pt-2 border-t border-surface-container-highest/20">
-                <span class="font-technical text-xs uppercase text-surface-bright font-bold">Direct Studio Channels</span>
-                <a href="tel:+919847012345" class="flex items-center gap-3 p-3 rounded-xl bg-white/10 hover:bg-white/20 transition-colors">
+              <div class="flex flex-col gap-3 pt-2 border-t border-surface-container-highest">
+                <span class="font-technical text-xs uppercase text-on-surface font-bold">Direct Studio Channels</span>
+                <a href="tel:+919847012345" class="flex items-center gap-3 p-3 rounded-xl bg-white border border-surface-container-highest hover:bg-surface-container-low transition-colors shadow-xs">
                   <span class="material-symbols-outlined text-primary text-[20px]">call</span>
                   <div class="flex flex-col text-xs font-technical">
-                    <span class="text-surface-bright font-bold">+91 98470 12345</span>
-                    <span class="text-secondary-fixed-dim text-[10px]">Head Studio Desk</span>
+                    <span class="text-on-surface font-bold">+91 98470 12345</span>
+                    <span class="text-on-surface-variant text-[10px]">Head Studio Desk</span>
                   </div>
                 </a>
-                <a href="https://wa.me/919847012345" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-white/10 hover:bg-white/20 transition-colors">
+                <a href="https://wa.me/919847012345" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-white border border-surface-container-highest hover:bg-surface-container-low transition-colors shadow-xs">
                   <span class="material-symbols-outlined text-primary text-[20px]">chat</span>
                   <div class="flex flex-col text-xs font-technical">
-                    <span class="text-surface-bright font-bold">WhatsApp Direct</span>
-                    <span class="text-secondary-fixed-dim text-[10px]">Instant BOQ Chat</span>
+                    <span class="text-on-surface font-bold">WhatsApp Direct</span>
+                    <span class="text-on-surface-variant text-[10px]">Instant BOQ Chat</span>
                   </div>
                 </a>
-                <a href="mailto:hello@tattvabuilders.com" class="flex items-center gap-3 p-3 rounded-xl bg-white/10 hover:bg-white/20 transition-colors">
+                <a href="mailto:hello@tattvabuilders.com" class="flex items-center gap-3 p-3 rounded-xl bg-white border border-surface-container-highest hover:bg-surface-container-low transition-colors shadow-xs">
                   <span class="material-symbols-outlined text-primary text-[20px]">mail</span>
                   <div class="flex flex-col text-xs font-technical">
-                    <span class="text-surface-bright font-bold">hello@tattvabuilders.com</span>
-                    <span class="text-secondary-fixed-dim text-[10px]">Architectural Enquiries</span>
+                    <span class="text-on-surface font-bold">hello@tattvabuilders.com</span>
+                    <span class="text-on-surface-variant text-[10px]">Architectural Enquiries</span>
                   </div>
                 </a>
               </div>
@@ -1312,10 +1307,10 @@
         </div>
 
         <!-- Studio Locations Grid -->
-        <div class="flex flex-col gap-4 pt-6 border-t border-surface-container-highest/60">
+        <div class="flex flex-col gap-4 pt-6 border-t border-surface-container-highest">
           <h2 class="font-headline text-2xl text-on-surface">Visit Our Kerala Design Studios</h2>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-2">
+            <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest flex flex-col gap-2">
               <span class="font-technical text-xs text-primary font-bold uppercase">Kochi Flagship Studio</span>
               <h4 class="font-body text-base font-bold text-on-surface">Vyttila Studio Hub</h4>
               <p class="font-body text-xs text-on-surface-variant leading-relaxed">
@@ -1324,7 +1319,7 @@
               <span class="font-technical text-[11px] text-secondary mt-1">Mon – Sat: 9:00 AM – 6:30 PM</span>
             </div>
 
-            <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-2">
+            <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest flex flex-col gap-2">
               <span class="font-technical text-xs text-primary font-bold uppercase">Thrissur Studio</span>
               <h4 class="font-body text-base font-bold text-on-surface">Swaraj Round Studio</h4>
               <p class="font-body text-xs text-on-surface-variant leading-relaxed">
@@ -1333,7 +1328,7 @@
               <span class="font-technical text-[11px] text-secondary mt-1">Mon – Sat: 9:30 AM – 6:00 PM</span>
             </div>
 
-            <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-2">
+            <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest flex flex-col gap-2">
               <span class="font-technical text-xs text-primary font-bold uppercase">Kozhikode Studio</span>
               <h4 class="font-body text-base font-bold text-on-surface">Beach Road Studio</h4>
               <p class="font-body text-xs text-on-surface-variant leading-relaxed">
@@ -1371,28 +1366,28 @@
 
         <!-- Key Spec Cards -->
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div class="p-5 bg-surface-container-low rounded-2xl border border-surface-container-highest/60 flex flex-col justify-between">
+          <div class="p-5 bg-surface-container-low rounded-2xl border border-surface-container-highest flex flex-col justify-between">
             <span class="font-technical text-[10px] text-on-surface-variant uppercase font-bold">Built-up Area</span>
             <div class="flex items-baseline gap-1 mt-1">
               <span class="font-technical text-3xl font-bold text-on-surface">2,450</span>
               <span class="font-technical text-xs text-on-surface-variant">sq.ft</span>
             </div>
           </div>
-          <div class="p-5 bg-surface-container-low rounded-2xl border border-surface-container-highest/60 flex flex-col justify-between">
+          <div class="p-5 bg-surface-container-low rounded-2xl border border-surface-container-highest flex flex-col justify-between">
             <span class="font-technical text-[10px] text-on-surface-variant uppercase font-bold">Bedrooms</span>
             <div class="flex items-baseline gap-1 mt-1">
               <span class="font-technical text-3xl font-bold text-on-surface">4</span>
               <span class="font-technical text-xs text-on-surface-variant">Ensuite BHK</span>
             </div>
           </div>
-          <div class="p-5 bg-surface-container-low rounded-2xl border border-surface-container-highest/60 flex flex-col justify-between">
+          <div class="p-5 bg-surface-container-low rounded-2xl border border-surface-container-highest flex flex-col justify-between">
             <span class="font-technical text-[10px] text-on-surface-variant uppercase font-bold">Plot Fit</span>
             <div class="flex items-baseline gap-1 mt-1">
               <span class="font-technical text-3xl font-bold text-on-surface">6.5–10</span>
               <span class="font-technical text-xs text-on-surface-variant">Cents</span>
             </div>
           </div>
-          <div class="p-5 bg-surface-container-low rounded-2xl border border-surface-container-highest/60 flex flex-col justify-between">
+          <div class="p-5 bg-surface-container-low rounded-2xl border border-surface-container-highest flex flex-col justify-between">
             <span class="font-technical text-[10px] text-on-surface-variant uppercase font-bold">Floors</span>
             <div class="flex items-baseline gap-1 mt-1">
               <span class="font-technical text-3xl font-bold text-on-surface">G + 1</span>
@@ -1409,11 +1404,11 @@
             <span class="font-technical text-xs text-on-surface-variant ml-2">(₹2,120 – ₹2,600 / sq.ft)</span>
           </div>
           <div class="flex items-center gap-3 w-full sm:w-auto">
-            <a href="#solar-sim" class="flex-1 sm:flex-initial h-12 px-6 rounded-xl gradient-terracotta text-white font-body text-xs font-bold flex items-center justify-center gap-2 shadow-md hover:scale-101 transition-all">
+            <a href="#solar-sim" class="flex-1 sm:flex-initial h-12 px-6 rounded-xl gradient-terracotta text-white font-body text-xs font-bold flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all">
               <span class="material-symbols-outlined text-[18px]">wb_sunny</span>
               <span>Launch 360° Solar & Wind Sim</span>
             </a>
-            <a href="#calculator" class="flex-1 sm:flex-initial h-12 px-5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs font-semibold flex items-center justify-center gap-1 hover:bg-surface-container-low transition-all">
+            <a href="#calculator" class="flex-1 sm:flex-initial h-12 px-5 rounded-xl bg-white border border-surface-container-highest text-on-surface font-body text-xs font-semibold flex items-center justify-center gap-1 hover:bg-surface-container-low transition-all">
               <span>Calculate Cost</span>
             </a>
           </div>
@@ -1421,12 +1416,12 @@
 
         <!-- Interactive Image Gallery -->
         <div class="flex flex-col gap-3">
-          <div class="relative w-full rounded-3xl overflow-hidden shadow-lg bg-inverse-surface aspect-[16/9] sm:aspect-[21/9]">
+          <div class="relative w-full rounded-3xl overflow-hidden shadow-md bg-surface-container-low border border-surface-container-highest aspect-[16/9] sm:aspect-[21/9]">
             <img id="main-gallery-img" 
                  src="./interior_view_of_a_modern_tropical_kerala_courtyard_house_with_natural_sunlight/screen.png" 
                  alt="Central Courtyard" 
                  class="w-full h-full object-cover transition-opacity duration-300"/>
-            <div class="absolute top-4 left-4 px-4 py-1.5 rounded-full glass-dark text-inverse-on-surface font-technical text-xs flex items-center gap-2">
+            <div class="absolute top-4 left-4 px-4 py-1.5 rounded-full glass-light text-on-surface font-technical text-xs flex items-center gap-2 font-bold">
               <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
               <span id="gallery-badge-text">Bioclimatic Sunken Courtyard (Nadumuttam)</span>
             </div>
@@ -1443,20 +1438,20 @@
         <!-- Architectural Monograph & Floor Plans -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
           <div class="lg:col-span-7 flex flex-col gap-6">
-            <div class="p-6 sm:p-8 rounded-3xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-4">
+            <div class="p-6 sm:p-8 rounded-3xl bg-surface-container-low border border-surface-container-highest flex flex-col gap-4">
               <h2 class="font-headline text-2xl text-on-surface">Design Monograph</h2>
               <p class="font-body text-sm text-on-surface leading-relaxed">
                 Engineered specifically for Kerala's torrential monsoons and intense humidity. The villa revolves around an inward-focused <strong class="text-primary">Nadumuttam</strong> that regulates microclimates without demanding high-energy air conditioning. Warm breezes enter through low Charupadi loungers, travel over the central lily pond, and vent skyward through the open shaft.
               </p>
               <div class="grid grid-cols-2 gap-4 pt-2">
-                <div class="p-4 bg-surface-container-lowest rounded-2xl flex items-start gap-3">
+                <div class="p-4 bg-white rounded-2xl border border-surface-container-highest flex items-start gap-3">
                   <span class="material-symbols-outlined text-primary text-[24px]">air</span>
                   <div>
                     <span class="font-body text-xs font-bold text-on-surface block">Passive Cooling</span>
                     <span class="font-body text-[11px] text-on-surface-variant">Convective thermal stack</span>
                   </div>
                 </div>
-                <div class="p-4 bg-surface-container-lowest rounded-2xl flex items-start gap-3">
+                <div class="p-4 bg-white rounded-2xl border border-surface-container-highest flex items-start gap-3">
                   <span class="material-symbols-outlined text-primary text-[24px]">deck</span>
                   <div>
                     <span class="font-body text-xs font-bold text-on-surface block">Poomukham Entry</span>
@@ -1468,23 +1463,23 @@
           </div>
 
           <div class="lg:col-span-5 flex flex-col gap-4">
-            <div class="p-6 sm:p-8 rounded-3xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-4">
+            <div class="p-6 sm:p-8 rounded-3xl bg-surface-container-low border border-surface-container-highest flex flex-col gap-4">
               <h2 class="font-headline text-xl text-on-surface">Vastu & Orientation Compliance</h2>
               <div class="space-y-2.5 font-technical text-xs">
-                <div class="p-3.5 rounded-xl bg-surface-container-lowest flex justify-between items-center">
+                <div class="p-3.5 rounded-xl bg-white border border-surface-container-highest flex justify-between items-center">
                   <span class="text-primary font-bold">SOUTH-EAST</span>
                   <span class="text-on-surface">Kitchen (Agni Cone)</span>
                 </div>
-                <div class="p-3.5 rounded-xl bg-surface-container-lowest flex justify-between items-center">
+                <div class="p-3.5 rounded-xl bg-white border border-surface-container-highest flex justify-between items-center">
                   <span class="text-primary font-bold">SOUTH-WEST</span>
                   <span class="text-on-surface">Master Suite (Nirruthi)</span>
                 </div>
-                <div class="p-3.5 rounded-xl bg-surface-container-lowest flex justify-between items-center">
+                <div class="p-3.5 rounded-xl bg-white border border-surface-container-highest flex justify-between items-center">
                   <span class="text-primary font-bold">EAST-FACING</span>
                   <span class="text-on-surface">Poomukham Entry Portico</span>
                 </div>
               </div>
-              <a href="#solar-sim" class="w-full h-12 rounded-xl gradient-terracotta text-white font-body text-xs font-bold flex items-center justify-center gap-2 mt-2 shadow-md hover:scale-101 transition-all">
+              <a href="#solar-sim" class="w-full h-12 rounded-xl gradient-terracotta text-white font-body text-xs font-bold flex items-center justify-center gap-2 mt-2 shadow-sm hover:shadow-md transition-all">
                 <span class="material-symbols-outlined text-[18px]">wb_sunny</span>
                 <span>Open 360° Sun & Wind Simulator</span>
               </a>
@@ -1517,16 +1512,16 @@
 
         <!-- Mode Switcher Tabs -->
         <div class="flex p-1 bg-surface-container rounded-2xl max-w-lg">
-          <button type="button" id="btn-plan-cad" onclick="switchPlanMode('cad')" class="flex-1 py-2.5 rounded-xl font-technical text-xs font-bold text-center transition-all bg-surface-container-lowest text-on-surface shadow-sm">Standard CAD</button>
+          <button type="button" id="btn-plan-cad" onclick="switchPlanMode('cad')" class="flex-1 py-2.5 rounded-xl font-technical text-xs font-bold text-center transition-all bg-white text-on-surface shadow-xs border border-surface-container-highest">Standard CAD</button>
           <button type="button" id="btn-plan-shadow" onclick="switchPlanMode('shadow')" class="flex-1 py-2.5 rounded-xl font-technical text-xs font-bold text-center transition-all text-on-surface-variant hover:text-primary">Solar & Shadow</button>
           <button type="button" id="btn-plan-wind" onclick="switchPlanMode('wind')" class="flex-1 py-2.5 rounded-xl font-technical text-xs font-bold text-center transition-all text-on-surface-variant hover:text-primary">Wind & Airflow</button>
         </div>
 
         <!-- Simulation Viewport -->
-        <div class="relative w-full rounded-3xl overflow-hidden bg-inverse-surface border border-white/15 shadow-2xl p-4 sm:p-8 flex flex-col items-center">
+        <div class="relative w-full rounded-3xl overflow-hidden bg-surface-container-low border border-surface-container-highest shadow-xl p-4 sm:p-8 flex flex-col items-center">
           
           <!-- Mode Indicator Badge -->
-          <div class="absolute top-4 left-4 px-4 py-1.5 rounded-full glass-dark text-white font-technical text-xs font-bold flex items-center gap-2">
+          <div class="absolute top-4 left-4 px-4 py-1.5 rounded-full glass-light text-on-surface font-technical text-xs font-bold flex items-center gap-2 shadow-xs">
             <span class="material-symbols-outlined text-[16px] text-primary" id="plan-sim-icon">tune</span>
             <span id="plan-sim-header-label">Standard CAD Architectural View</span>
           </div>
@@ -1553,32 +1548,32 @@
           </div>
 
           <!-- Shadow Simulation Controls -->
-          <div id="shadow-sim-controls" class="w-full max-w-xl hidden flex-col gap-3 p-5 rounded-2xl glass-dark text-surface-bright">
-            <div class="flex justify-between font-technical text-xs">
-              <span>Time of Day: <strong id="sun-time-readout" class="text-tertiary-fixed">12:00 PM (Noon Overhead)</strong></span>
-              <span>Azimuth: <strong id="sun-angle-readout" class="text-tertiary-fixed">82° S</strong></span>
+          <div id="shadow-sim-controls" class="w-full max-w-xl hidden flex-col gap-3 p-5 rounded-2xl glass-light text-on-surface">
+            <div class="flex justify-between font-technical text-xs font-bold">
+              <span>Time of Day: <strong id="sun-time-readout" class="text-primary">12:00 PM (Noon Overhead)</strong></span>
+              <span>Azimuth: <strong id="sun-angle-readout" class="text-primary">82° S</strong></span>
             </div>
             <input type="range" id="shadow-time-slider" min="6" max="18" value="12" step="1" oninput="updateSunTime(this.value)" class="w-full accent-primary cursor-pointer"/>
-            <div class="flex justify-between font-technical text-[10px] text-secondary-fixed-dim">
-              <button type="button" onclick="setShadowPreset(8)" class="hover:text-surface-bright">6 AM (Dawn)</button>
-              <button type="button" onclick="setShadowPreset(12)" class="hover:text-surface-bright">12 PM (Noon)</button>
-              <button type="button" onclick="setShadowPreset(16)" class="hover:text-surface-bright">4 PM (Dusk)</button>
+            <div class="flex justify-between font-technical text-[10px] text-on-surface-variant font-semibold">
+              <button type="button" onclick="setShadowPreset(8)" class="hover:text-primary">6 AM (Dawn)</button>
+              <button type="button" onclick="setShadowPreset(12)" class="hover:text-primary">12 PM (Noon)</button>
+              <button type="button" onclick="setShadowPreset(16)" class="hover:text-primary">4 PM (Dusk)</button>
             </div>
           </div>
 
           <!-- Wind Simulation Controls -->
-          <div id="wind-sim-controls" class="w-full max-w-xl hidden flex-col gap-4 p-5 rounded-2xl glass-dark text-surface-bright">
+          <div id="wind-sim-controls" class="w-full max-w-xl hidden flex-col gap-4 p-5 rounded-2xl glass-light text-on-surface">
             <div class="flex items-center justify-between">
               <span class="font-technical text-xs font-bold">Monsoon Wind Season:</span>
               <div class="flex gap-2">
-                <button type="button" id="btn-wind-sw" onclick="setWindSeason('sw')" class="px-3 py-1 rounded-lg bg-primary text-on-primary font-technical text-xs font-bold">SW Monsoon</button>
-                <button type="button" id="btn-wind-ne" onclick="setWindSeason('ne')" class="px-3 py-1 rounded-lg bg-white/10 text-white font-technical text-xs">NE Trade Winds</button>
+                <button type="button" id="btn-wind-sw" onclick="setWindSeason('sw')" class="px-3 py-1.5 rounded-lg bg-primary text-on-primary font-technical text-xs font-bold">SW Monsoon</button>
+                <button type="button" id="btn-wind-ne" onclick="setWindSeason('ne')" class="px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant font-technical text-xs font-semibold">NE Trade Winds</button>
               </div>
             </div>
             <div class="flex flex-col gap-1 font-technical text-xs">
-              <div class="flex justify-between">
+              <div class="flex justify-between font-bold">
                 <span>Teak Louver Aperture:</span>
-                <span id="louver-slider-readout" class="text-tertiary-fixed font-bold">100% Fully Open</span>
+                <span id="louver-slider-readout" class="text-primary">100% Fully Open</span>
               </div>
               <input type="range" min="0" max="100" value="100" oninput="updateLouverAperture(this.value)" class="w-full accent-primary cursor-pointer"/>
             </div>
@@ -1588,19 +1583,19 @@
 
         <!-- Calculated Live Metrics Grid -->
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col">
+          <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest flex flex-col">
             <span class="font-technical text-[10px] text-on-surface-variant uppercase font-bold">Air Changes / Hour</span>
             <span class="font-technical text-2xl font-bold text-primary mt-1" id="metric-ach">14.2 ACH</span>
           </div>
-          <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col">
+          <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest flex flex-col">
             <span class="font-technical text-[10px] text-on-surface-variant uppercase font-bold">Louver Velocity</span>
             <span class="font-technical text-2xl font-bold text-on-surface mt-1" id="metric-louver-vel">0.85 m/s</span>
           </div>
-          <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col">
+          <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest flex flex-col">
             <span class="font-technical text-[10px] text-on-surface-variant uppercase font-bold">Courtyard Temp Drop</span>
             <span class="font-technical text-2xl font-bold text-primary mt-1" id="metric-pond-drop">-3.4°C</span>
           </div>
-          <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col">
+          <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest flex flex-col">
             <span class="font-technical text-[10px] text-on-surface-variant uppercase font-bold">Ventilation Efficiency</span>
             <span class="font-technical text-2xl font-bold text-on-surface mt-1" id="metric-draft-index">94%</span>
           </div>
@@ -1619,10 +1614,10 @@
           <p class="font-body text-sm text-on-surface-variant">Panchayat setback guidelines, FAR limits, and pre-construction inspection checklist.</p>
         </div>
 
-        <div class="p-6 sm:p-8 rounded-3xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-4 shadow-sm">
+        <div class="p-6 sm:p-8 rounded-3xl bg-surface-container-low border border-surface-container-highest flex flex-col gap-4 shadow-xs">
           <h2 class="font-headline text-xl text-on-surface">Interactive Pre-Construction Checklist</h2>
           <div class="flex gap-2 border-b border-surface-container-highest pb-3">
-            <button type="button" data-phase="before" class="phase-btn px-4 py-2 rounded-xl font-technical text-xs font-bold bg-inverse-surface text-inverse-on-surface shadow-sm">Before Construction</button>
+            <button type="button" data-phase="before" class="phase-btn px-4 py-2 rounded-xl font-technical text-xs font-bold bg-primary text-white shadow-xs">Before Construction</button>
             <button type="button" data-phase="during" class="phase-btn px-4 py-2 rounded-xl font-technical text-xs font-bold bg-transparent text-on-surface hover:bg-surface-container-high">During Construction</button>
             <button type="button" data-phase="handover" class="phase-btn px-4 py-2 rounded-xl font-technical text-xs font-bold bg-transparent text-on-surface hover:bg-surface-container-high">Handover</button>
           </div>
@@ -1763,8 +1758,8 @@
 
       document.querySelectorAll('.hero-sqft-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-          document.querySelectorAll('.hero-sqft-btn').forEach(b => b.className = 'hero-sqft-btn py-2 rounded-lg bg-white/10 text-white hover:bg-white/20 transition-all text-center');
-          btn.className = 'hero-sqft-btn py-2 rounded-lg bg-primary text-white font-bold shadow-sm text-center selected';
+          document.querySelectorAll('.hero-sqft-btn').forEach(b => b.className = 'hero-sqft-btn py-2.5 rounded-xl bg-white text-on-surface border border-surface-container-highest hover:bg-surface-container-high transition-all text-center');
+          btn.className = 'hero-sqft-btn py-2.5 rounded-xl bg-primary text-white font-bold shadow-xs text-center selected';
           heroSqft = parseInt(btn.dataset.sqft, 10);
           updateHeroCost();
         });
@@ -1802,8 +1797,8 @@
       // Location chips
       document.querySelectorAll('.loc-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-          document.querySelectorAll('.loc-btn').forEach(b => b.className = 'loc-btn px-4 py-2.5 rounded-xl font-body text-xs font-semibold bg-surface-container-highest text-on-surface hover:bg-surface-container-high transition-all');
-          btn.className = 'loc-btn px-4 py-2.5 rounded-xl font-body text-xs font-bold bg-inverse-surface text-inverse-on-surface transition-all shadow-sm';
+          document.querySelectorAll('.loc-btn').forEach(b => b.className = 'loc-btn px-4 py-2.5 rounded-xl font-body text-xs font-semibold bg-white border border-surface-container-highest text-on-surface hover:bg-surface-container-high transition-all');
+          btn.className = 'loc-btn px-4 py-2.5 rounded-xl font-body text-xs font-bold bg-primary text-white border border-primary transition-all shadow-xs';
           state.loc = btn.dataset.val;
           recalc();
         });
@@ -1812,8 +1807,8 @@
       // Size chips
       document.querySelectorAll('.size-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-          document.querySelectorAll('.size-btn').forEach(b => b.className = 'size-btn py-3 px-2 rounded-xl font-technical text-xs bg-surface-container-highest text-on-surface transition-all');
-          btn.className = 'size-btn py-3 px-2 rounded-xl font-technical text-xs bg-inverse-surface text-inverse-on-surface font-bold transition-all selected shadow-sm';
+          document.querySelectorAll('.size-btn').forEach(b => b.className = 'size-btn py-3 px-2 rounded-xl font-technical text-xs bg-white border border-surface-container-highest text-on-surface transition-all');
+          btn.className = 'size-btn py-3 px-2 rounded-xl font-technical text-xs bg-primary text-white font-bold border border-primary transition-all selected shadow-xs';
           state.sqft = parseInt(btn.dataset.sqft, 10);
           document.getElementById('sqft-readout').innerText = `${state.sqft.toLocaleString()} sq ft`;
           recalc();
@@ -1824,9 +1819,9 @@
       document.querySelectorAll('.quality-card').forEach(card => {
         card.addEventListener('click', () => {
           document.querySelectorAll('.quality-card').forEach(c => {
-            c.className = 'quality-card p-4 rounded-2xl bg-surface-container-highest cursor-pointer flex items-center justify-between transition-all hover:bg-surface-container-high border border-transparent';
+            c.className = 'quality-card p-4 rounded-2xl bg-white border border-surface-container-highest cursor-pointer flex items-center justify-between transition-all hover:bg-surface-container-high';
           });
-          card.className = 'quality-card p-4 rounded-2xl bg-inverse-surface text-inverse-on-surface shadow-md cursor-pointer flex items-center justify-between transition-all selected border border-primary';
+          card.className = 'quality-card p-4 rounded-2xl bg-primary/5 border-2 border-primary text-on-surface shadow-xs cursor-pointer flex items-center justify-between transition-all selected';
           state.rate = parseInt(card.dataset.rate, 10);
           recalc();
         });
@@ -1835,8 +1830,8 @@
       // Floor chips
       document.querySelectorAll('.floor-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-          document.querySelectorAll('.floor-btn').forEach(b => b.className = 'floor-btn py-2.5 px-3 rounded-xl text-left font-body text-xs bg-surface-container-highest text-on-surface');
-          btn.className = 'floor-btn py-2.5 px-3 rounded-xl text-left font-body text-xs font-bold bg-inverse-surface text-inverse-on-surface selected';
+          document.querySelectorAll('.floor-btn').forEach(b => b.className = 'floor-btn py-2.5 px-3 rounded-xl text-left font-body text-xs bg-white border border-surface-container-highest text-on-surface');
+          btn.className = 'floor-btn py-2.5 px-3 rounded-xl text-left font-body text-xs font-bold bg-primary text-white border border-primary selected shadow-xs';
           state.floorMult = parseFloat(btn.dataset.mult);
           recalc();
         });
@@ -1856,8 +1851,8 @@
 
     document.querySelectorAll('.budget-tab-btn').forEach(tab => {
       tab.addEventListener('click', () => {
-        document.querySelectorAll('.budget-tab-btn').forEach(t => t.className = 'budget-tab-btn whitespace-nowrap px-5 py-2.5 rounded-xl font-technical text-xs font-semibold bg-surface-container-highest text-on-surface transition-all');
-        tab.className = 'budget-tab-btn whitespace-nowrap px-5 py-2.5 rounded-xl font-technical text-xs font-bold bg-inverse-surface text-inverse-on-surface transition-all selected shadow-sm';
+        document.querySelectorAll('.budget-tab-btn').forEach(t => t.className = 'budget-tab-btn whitespace-nowrap px-5 py-2.5 rounded-xl font-technical text-xs font-semibold bg-white border border-surface-container-highest text-on-surface transition-all');
+        tab.className = 'budget-tab-btn whitespace-nowrap px-5 py-2.5 rounded-xl font-technical text-xs font-bold bg-primary text-white border border-primary transition-all selected shadow-xs';
         
         const data = budgetData[tab.dataset.budget];
         if (data) {
@@ -1874,7 +1869,7 @@
     document.querySelectorAll('.design-filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.design-filter-btn').forEach(b => b.className = 'design-filter-btn px-4 py-2 rounded-xl font-body text-xs font-semibold bg-surface-container text-on-surface whitespace-nowrap hover:bg-surface-container-high');
-        btn.className = 'design-filter-btn px-4 py-2 rounded-xl font-body text-xs font-semibold bg-inverse-surface text-inverse-on-surface whitespace-nowrap selected';
+        btn.className = 'design-filter-btn px-4 py-2 rounded-xl font-body text-xs font-semibold bg-primary text-white border border-primary whitespace-nowrap selected';
         
         const cat = btn.dataset.filter;
         document.querySelectorAll('.design-item').forEach(item => {
@@ -1962,7 +1957,7 @@
       });
 
       if (mode === 'cad') {
-        document.getElementById('btn-plan-cad').className = 'flex-1 py-2.5 rounded-xl font-technical text-xs font-bold text-center transition-all bg-surface-container-lowest text-on-surface shadow-sm';
+        document.getElementById('btn-plan-cad').className = 'flex-1 py-2.5 rounded-xl font-technical text-xs font-bold text-center transition-all bg-white text-on-surface shadow-xs border border-surface-container-highest';
         if (overlayShadow) overlayShadow.classList.add('hidden');
         if (overlayWind) overlayWind.classList.add('hidden');
         if (controlsShadow) controlsShadow.classList.add('hidden');
@@ -2019,11 +2014,11 @@
       const btnSW = document.getElementById('btn-wind-sw');
       const btnNE = document.getElementById('btn-wind-ne');
       if (season === 'sw') {
-        if (btnSW) btnSW.className = 'px-3 py-1 rounded-lg bg-primary text-on-primary font-technical text-xs font-bold';
-        if (btnNE) btnNE.className = 'px-3 py-1 rounded-lg bg-white/10 text-white font-technical text-xs';
+        if (btnSW) btnSW.className = 'px-3 py-1.5 rounded-lg bg-primary text-on-primary font-technical text-xs font-bold';
+        if (btnNE) btnNE.className = 'px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant font-technical text-xs font-semibold';
       } else {
-        if (btnNE) btnNE.className = 'px-3 py-1 rounded-lg bg-primary text-on-primary font-technical text-xs font-bold';
-        if (btnSW) btnSW.className = 'px-3 py-1 rounded-lg bg-white/10 text-white font-technical text-xs';
+        if (btnNE) btnNE.className = 'px-3 py-1.5 rounded-lg bg-primary text-on-primary font-technical text-xs font-bold';
+        if (btnSW) btnSW.className = 'px-3 py-1.5 rounded-lg bg-surface-container text-on-surface-variant font-technical text-xs font-semibold';
       }
       recalcWindMetrics();
     }
@@ -2054,7 +2049,7 @@
       const scopeBtns = document.querySelectorAll('.scope-btn');
       scopeBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          scopeBtns.forEach(b => b.className = 'scope-btn p-3 rounded-xl font-body text-xs text-left border border-surface-container-highest bg-surface-container-lowest text-on-surface transition-all');
+          scopeBtns.forEach(b => b.className = 'scope-btn p-3 rounded-xl font-body text-xs text-left border border-surface-container-highest bg-white text-on-surface transition-all');
           btn.className = 'scope-btn p-3 rounded-xl font-body text-xs text-left border border-primary bg-primary/10 text-primary font-bold transition-all';
           
           const labels = {
