@@ -252,7 +252,7 @@
               <div class="p-4 rounded-2xl bg-white border border-surface-container-highest shadow-xs flex flex-col gap-2 text-center" id="hero-cost-output-container">
                 <span class="font-technical text-[10px] text-on-surface-variant uppercase tracking-wider">Turnkey Construction Estimator</span>
                 <span class="font-headline text-base font-bold text-on-surface" id="hero-spec-summary">2,000 sq ft • Kochi Central</span>
-                <button type="button" id="hero-calc-btn" class="w-full h-11 rounded-xl gradient-terracotta text-white font-body text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all">
+                <button type="button" id="hero-calc-btn" onclick="openLeadModal()" class="w-full h-11 rounded-xl gradient-terracotta text-white font-body text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all">
                   <span class="material-symbols-outlined text-[18px]">calculate</span>
                   <span>Calculate Construction Cost</span>
                 </button>
@@ -503,7 +503,7 @@
                     </ul>
                   </div>
 
-                  <button type="button" id="trigger-calc-btn" class="w-full h-12 rounded-xl gradient-terracotta text-white font-body text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all">
+                  <button type="button" id="trigger-calc-btn" onclick="openLeadModal()" class="w-full h-12 rounded-xl gradient-terracotta text-white font-body text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all">
                     <span class="material-symbols-outlined text-[18px]">calculate</span>
                     <span>Calculate Construction Cost</span>
                   </button>
@@ -521,7 +521,7 @@
                       <span class="material-symbols-outlined text-primary text-[18px]">assignment_turned_in</span>
                       <span class="font-body text-xs font-bold text-on-surface">Estimate prepared for: <strong id="unlocked-lead-name" class="text-primary font-bold">Client</strong></span>
                     </div>
-                    <button type="button" id="reset-lead-btn" class="font-technical text-[10px] text-secondary underline hover:text-primary">Edit Info</button>
+                    <button type="button" id="reset-lead-btn" onclick="openLeadModal()" class="font-technical text-[10px] text-secondary underline hover:text-primary">Edit Info</button>
                   </div>
 
                   <div class="flex flex-col gap-1 border-b border-surface-container-highest pb-5">
@@ -2214,93 +2214,63 @@
       }
     })();
 
-    // --- 11. LEAD GATE MODAL & CALCULATION UNLOCK HANDLER ---
-    (function initLeadGateModal() {
+    // --- 11. LEAD GATE MODAL & CALCULATION HANDLER ---
+    window.openLeadModal = function() {
       const modal = document.getElementById('lead-capture-modal');
-      const modalForm = document.getElementById('modal-lead-form');
-      const closeModalBtn = document.getElementById('close-modal-btn');
-      const triggerCalcBtn = document.getElementById('trigger-calc-btn');
-      const heroCalcBtn = document.getElementById('hero-calc-btn');
-      const resetBtn = document.getElementById('reset-lead-btn');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        const nameInput = document.getElementById('modal-lead-name');
+        const phoneInput = document.getElementById('modal-lead-phone');
+        try {
+          const savedName = localStorage.getItem('tattva_lead_name');
+          const savedPhone = localStorage.getItem('tattva_lead_phone');
+          if (savedName && nameInput && !nameInput.value) nameInput.value = savedName;
+          if (savedPhone && phoneInput && !phoneInput.value) phoneInput.value = savedPhone;
+        } catch (e) {}
+        if (nameInput) setTimeout(() => nameInput.focus(), 100);
+      }
+    };
+
+    window.closeLeadModal = function() {
+      const modal = document.getElementById('lead-capture-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    };
+
+    window.submitLeadForm = function(e) {
+      if (e) e.preventDefault();
+      const name = document.getElementById('modal-lead-name')?.value.trim();
+      const phone = document.getElementById('modal-lead-phone')?.value.trim();
+
+      if (!name) return alert('Please enter your full name');
+      if (!phone || phone.length < 10) return alert('Please enter a valid 10-digit mobile number');
+
+      try {
+        localStorage.setItem('tattva_lead_submitted', 'true');
+        localStorage.setItem('tattva_lead_name', name);
+        localStorage.setItem('tattva_lead_phone', phone);
+      } catch (err) {}
+
+      window.closeLeadModal();
 
       const teaserBox = document.getElementById('boq-lead-teaser-box');
       const unlockedBox = document.getElementById('boq-lead-unlocked-results');
-
-      function openModal() {
-        if (modal) {
-          modal.classList.remove('hidden');
-          const nameInput = document.getElementById('modal-lead-name');
-          const phoneInput = document.getElementById('modal-lead-phone');
-          try {
-            const savedName = localStorage.getItem('tattva_lead_name');
-            const savedPhone = localStorage.getItem('tattva_lead_phone');
-            if (savedName && nameInput && !nameInput.value) nameInput.value = savedName;
-            if (savedPhone && phoneInput && !phoneInput.value) phoneInput.value = savedPhone;
-          } catch (e) {}
-          if (nameInput) setTimeout(() => nameInput.focus(), 100);
-        }
+      if (teaserBox) teaserBox.classList.add('hidden');
+      if (unlockedBox) {
+        unlockedBox.classList.remove('hidden');
+        unlockedBox.classList.add('flex');
       }
 
-      function closeModal() {
-        if (modal) modal.classList.add('hidden');
-      }
+      const nameSpan = document.getElementById('unlocked-lead-name');
+      if (nameSpan && name) nameSpan.innerText = name;
 
-      function revealCalculations(name, phone) {
-        try {
-          localStorage.setItem('tattva_lead_submitted', 'true');
-          if (name) localStorage.setItem('tattva_lead_name', name);
-          if (phone) localStorage.setItem('tattva_lead_phone', phone);
-        } catch (e) {}
-
-        closeModal();
-
-        if (teaserBox) teaserBox.classList.add('hidden');
-        if (unlockedBox) {
-          unlockedBox.classList.remove('hidden');
-          unlockedBox.classList.add('flex');
-        }
-
-        const nameSpan = document.getElementById('unlocked-lead-name');
-        if (nameSpan && name) nameSpan.innerText = name;
-
-        const calcSection = document.getElementById('calculator');
-        if (calcSection) calcSection.scrollIntoView({ behavior: 'smooth' });
-      }
-
-      function resetLead() {
-        if (teaserBox) teaserBox.classList.remove('hidden');
-        if (unlockedBox) {
-          unlockedBox.classList.add('hidden');
-          unlockedBox.classList.remove('flex');
-        }
-        openModal();
-      }
-
-      function handleCalculateClick(e) {
-        if (e) e.preventDefault();
-        openModal();
-      }
-
-      if (triggerCalcBtn) triggerCalcBtn.addEventListener('click', handleCalculateClick);
-      if (heroCalcBtn) heroCalcBtn.addEventListener('click', handleCalculateClick);
-      if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
-      if (resetBtn) resetBtn.addEventListener('click', resetLead);
-
-      if (modalForm) {
-        modalForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          const name = document.getElementById('modal-lead-name')?.value.trim();
-          const phone = document.getElementById('modal-lead-phone')?.value.trim();
-
-          if (!name) return alert('Please enter your full name');
-          if (!phone || phone.length < 10) return alert('Please enter a valid 10-digit mobile number');
-
-          revealCalculations(name, phone);
-        });
-      }
-
-      window.closeLeadModal = closeModal;
-    })();
+      const calcSection = document.getElementById('calculator');
+      if (calcSection) calcSection.scrollIntoView({ behavior: 'smooth' });
+      return false;
+    };
   </script>
 
   <!-- ==================== LEAD CAPTURE MODAL ==================== -->
@@ -2325,7 +2295,7 @@
         <span class="text-on-surface font-bold text-sm" id="modal-spec-summary">2,000 sq ft • G+1 Duplex • 4 BHK (Kochi)</span>
       </div>
 
-      <form id="modal-lead-form" onsubmit="return false;" class="flex flex-col gap-4">
+      <form id="modal-lead-form" onsubmit="return submitLeadForm(event);" class="flex flex-col gap-4">
         <div class="flex flex-col gap-1">
           <label for="modal-lead-name" class="font-technical text-xs font-bold text-on-surface uppercase">Full Name *</label>
           <input type="text" id="modal-lead-name" placeholder="e.g. Rahul Menon" required class="w-full h-12 px-4 rounded-xl bg-white text-on-surface font-body text-sm border border-surface-container-highest focus:outline-none focus:border-primary shadow-xs"/>
