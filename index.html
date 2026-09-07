@@ -249,29 +249,14 @@
               </div>
 
               <!-- Output Box -->
-              <div class="p-4 rounded-2xl bg-white border border-surface-container-highest shadow-xs flex flex-col gap-1 text-center relative overflow-hidden" id="hero-cost-output-container">
-                <span class="font-technical text-[10px] text-on-surface-variant uppercase tracking-wider">Estimated Turnkey Construction Cost</span>
-                
-                <!-- Locked Readout (Default before Lead Entry) -->
-                <div id="hero-locked-readout" class="flex flex-col items-center py-1">
-                  <span class="font-technical text-2xl font-bold text-on-surface-variant/35 blur-[5px] select-none">₹42,30,000 – ₹48,60,000</span>
-                  <span class="font-technical text-xs font-bold text-primary flex items-center justify-center gap-1 mt-1 bg-primary/10 px-3 py-1 rounded-full border border-primary/20">
-                    <span class="material-symbols-outlined text-[15px]">lock</span>
-                    <span>Submit Lead to Unlock Calculation</span>
-                  </span>
-                </div>
-
-                <!-- Unlocked Readout (Hidden until Lead Entry) -->
-                <div id="hero-unlocked-readout" class="hidden flex-col items-center">
-                  <span class="font-technical text-2xl font-bold text-primary" id="hero-cost-output">₹42,30,000 – ₹48,60,000</span>
-                  <span class="font-technical text-[11px] text-on-surface-variant">~₹2,250 / sq ft (Premium Specification)</span>
-                </div>
+              <div class="p-4 rounded-2xl bg-white border border-surface-container-highest shadow-xs flex flex-col gap-2 text-center" id="hero-cost-output-container">
+                <span class="font-technical text-[10px] text-on-surface-variant uppercase tracking-wider">Turnkey Construction Estimator</span>
+                <span class="font-headline text-base font-bold text-on-surface" id="hero-spec-summary">2,000 sq ft • Kochi Central</span>
+                <button type="button" id="hero-calc-btn" class="w-full h-11 rounded-xl gradient-terracotta text-white font-body text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all">
+                  <span class="material-symbols-outlined text-[18px]">calculate</span>
+                  <span>Calculate Construction Cost</span>
+                </button>
               </div>
-
-              <a href="#calculator" class="w-full h-12 rounded-xl gradient-terracotta text-white font-body text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all">
-                <span class="material-symbols-outlined text-[18px]">lock_open</span>
-                <span>Enter Details & Unlock BOQ Engine</span>
-              </a>
             </div>
 
           </div>
@@ -489,62 +474,54 @@
             <div class="lg:col-span-5">
               <div class="sticky top-20 p-6 sm:p-8 rounded-3xl bg-white text-on-surface shadow-xl flex flex-col gap-6 border-2 border-primary/20 bg-gradient-to-b from-primary/5 via-white to-surface-container-low transition-all">
                 
-                <!-- Lead Collection Gate Card Overlay (Shown before lead is collected) -->
-                <div id="boq-lead-gate-overlay" class="flex flex-col gap-5">
-                  <div class="flex items-center gap-3 border-b border-surface-container-highest pb-4">
-                    <div class="w-10 h-10 rounded-2xl bg-primary/10 text-primary flex items-center justify-center font-bold">
-                      <span class="material-symbols-outlined text-[22px]">lock</span>
-                    </div>
-                    <div>
-                      <h3 class="font-headline text-lg font-bold text-on-surface">Unlock Your BOQ Calculation</h3>
-                      <p class="font-body text-xs text-on-surface-variant">Submit contact details to reveal live Kerala construction costs.</p>
-                    </div>
+                <!-- Live Summary Card (Shown before user submits contact details modal) -->
+                <div id="boq-lead-teaser-box" class="flex flex-col gap-5">
+                  <div class="flex flex-col gap-1 border-b border-surface-container-highest pb-4">
+                    <span class="font-technical text-xs text-primary tracking-wider uppercase font-bold flex items-center gap-1.5">
+                      <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                      Selected Specifications
+                    </span>
+                    <span class="font-headline text-lg font-bold text-on-surface mt-1" id="teaser-spec-summary">2,000 sq ft • G+1 Duplex • 4 BHK</span>
+                    <span class="font-technical text-xs text-on-surface-variant mt-0.5">Location: <strong id="teaser-loc-summary" class="text-primary font-bold">Kochi / Ernakulam Belt</strong></span>
                   </div>
 
-                  <form id="boq-lead-gate-form" onsubmit="return false;" class="flex flex-col gap-4">
-                    <div class="flex flex-col gap-1">
-                      <label for="gate-lead-name" class="font-technical text-xs font-bold text-on-surface uppercase">Full Name *</label>
-                      <input type="text" id="gate-lead-name" placeholder="e.g. Rahul Menon" required class="w-full h-11 px-3.5 rounded-xl bg-white text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary shadow-xs"/>
-                    </div>
+                  <div class="p-4 rounded-2xl bg-surface-container-low border border-surface-container-highest flex flex-col gap-2.5">
+                    <span class="font-technical text-xs font-bold text-on-surface uppercase">Turnkey BOQ Scope:</span>
+                    <ul class="space-y-2 font-body text-xs text-on-surface-variant">
+                      <li class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                        <span>Full RCC Foundation & Frame Structure</span>
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                        <span>Wire-cut Laterite Masonry & Teak Joinery</span>
+                      </li>
+                      <li class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                        <span>Turnkey Plumbing, Electrical & Paints</span>
+                      </li>
+                    </ul>
+                  </div>
 
-                    <div class="flex flex-col gap-1">
-                      <label for="gate-lead-phone" class="font-technical text-xs font-bold text-on-surface uppercase">WhatsApp / Mobile Number *</label>
-                      <input type="tel" id="gate-lead-phone" placeholder="e.g. 98765 43210" required class="w-full h-11 px-3.5 rounded-xl bg-white text-on-surface font-technical text-xs border border-surface-container-highest focus:outline-none focus:border-primary shadow-xs"/>
-                    </div>
-
-                    <div class="flex flex-col gap-1">
-                      <label for="gate-lead-district" class="font-technical text-xs font-bold text-on-surface uppercase">Building District</label>
-                      <select id="gate-lead-district" class="w-full h-11 px-3.5 rounded-xl bg-white text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary shadow-xs">
-                        <option value="Kochi">Kochi / Ernakulam</option>
-                        <option value="Thrissur">Thrissur</option>
-                        <option value="Kozhikode">Kozhikode</option>
-                        <option value="Trivandrum">Trivandrum</option>
-                        <option value="Kottayam">Kottayam</option>
-                        <option value="Kannur">Kannur</option>
-                        <option value="Other">Other Kerala District</option>
-                      </select>
-                    </div>
-
-                    <button type="submit" id="gate-submit-btn" class="w-full h-12 rounded-xl gradient-terracotta text-white font-body text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all mt-1">
-                      <span class="material-symbols-outlined text-[18px]">lock_open</span>
-                      <span>Unlock Calculation & BOQ Breakdown</span>
-                    </button>
-                    
-                    <p class="font-body text-[11px] text-center text-on-surface-variant flex items-center justify-center gap-1">
-                      <span class="material-symbols-outlined text-[14px] text-primary">verified_user</span>
-                      <span>100% Confidential • Instant Cost Calculation</span>
-                    </p>
-                  </form>
+                  <button type="button" id="trigger-calc-btn" class="w-full h-12 rounded-xl gradient-terracotta text-white font-body text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all">
+                    <span class="material-symbols-outlined text-[18px]">calculate</span>
+                    <span>Calculate Construction Cost</span>
+                  </button>
+                  
+                  <p class="font-body text-[11px] text-center text-on-surface-variant flex items-center justify-center gap-1">
+                    <span class="material-symbols-outlined text-[14px] text-primary">verified_user</span>
+                    <span>Generates live Kerala BOQ breakdown & PDF report</span>
+                  </p>
                 </div>
 
-                <!-- Live Unlocked Calculation Results (Hidden until lead is submitted) -->
+                <!-- Detailed Calculation Results (Shown after contact details are submitted) -->
                 <div id="boq-lead-unlocked-results" class="hidden flex-col gap-6">
-                  <div class="p-3 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-between">
+                  <div class="p-3 rounded-2xl bg-surface-container-low border border-surface-container-highest flex items-center justify-between">
                     <div class="flex items-center gap-2">
-                      <span class="material-symbols-outlined text-primary text-[18px]">verified</span>
-                      <span class="font-body text-xs font-bold text-primary">Calculation Unlocked for <span id="unlocked-lead-name">Client</span></span>
+                      <span class="material-symbols-outlined text-primary text-[18px]">assignment_turned_in</span>
+                      <span class="font-body text-xs font-bold text-on-surface">Estimate prepared for: <strong id="unlocked-lead-name" class="text-primary font-bold">Client</strong></span>
                     </div>
-                    <button type="button" id="reset-lead-btn" class="font-technical text-[10px] text-secondary underline hover:text-primary">Change Info</button>
+                    <button type="button" id="reset-lead-btn" class="font-technical text-[10px] text-secondary underline hover:text-primary">Edit Info</button>
                   </div>
 
                   <div class="flex flex-col gap-1 border-b border-surface-container-highest pb-5">
@@ -552,8 +529,8 @@
                       <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
                       Estimated Construction Cost
                     </span>
-                    <span class="font-technical text-xl sm:text-3xl text-primary font-extrabold tracking-tight leading-snug break-words" id="result-cost-range">₹47,00,000 – ₹55,00,000</span>
-                    <span class="font-technical text-xs text-on-surface-variant mt-1" id="result-sqft-rate">Approximate rate: ₹2,350 – ₹2,750 / sq ft</span>
+                    <span class="font-technical text-xl sm:text-2xl text-primary font-extrabold tracking-tight leading-snug break-words" id="result-cost-range">₹44,41,500 – ₹51,03,000</span>
+                    <span class="font-technical text-xs text-on-surface-variant mt-1" id="result-sqft-rate">Approximate rate: ₹2,363 / sq ft</span>
                   </div>
 
                   <!-- Stage Breakdown Bars -->
@@ -563,7 +540,7 @@
                       <div>
                         <div class="flex items-center justify-between gap-2 pb-1">
                           <span class="text-on-surface-variant truncate">01 Structure (Foundation & RCC)</span>
-                          <span class="text-on-surface font-bold shrink-0" id="bd-struct">₹14.5L</span>
+                          <span class="text-on-surface font-bold shrink-0" id="bd-struct">₹15,12,000</span>
                         </div>
                         <div class="w-full h-2.5 rounded-full bg-surface-container-highest overflow-hidden">
                           <div class="h-full bg-primary" style="width: 32%"></div>
@@ -572,7 +549,7 @@
                       <div>
                         <div class="flex items-center justify-between gap-2 pb-1">
                           <span class="text-on-surface-variant truncate">02 Masonry & Laterite Materials</span>
-                          <span class="text-on-surface font-bold shrink-0" id="bd-mat">₹10.2L</span>
+                          <span class="text-on-surface font-bold shrink-0" id="bd-mat">₹10,39,500</span>
                         </div>
                         <div class="w-full h-2.5 rounded-full bg-surface-container-highest overflow-hidden">
                           <div class="h-full bg-primary-hover" style="width: 22%"></div>
@@ -581,7 +558,7 @@
                       <div>
                         <div class="flex items-center justify-between gap-2 pb-1">
                           <span class="text-on-surface-variant truncate">03 Skilled Kerala Labour</span>
-                          <span class="text-on-surface font-bold shrink-0" id="bd-lab">₹7.5L</span>
+                          <span class="text-on-surface font-bold shrink-0" id="bd-lab">₹7,56,000</span>
                         </div>
                         <div class="w-full h-2.5 rounded-full bg-surface-container-highest overflow-hidden">
                           <div class="h-full bg-secondary" style="width: 16%"></div>
@@ -590,7 +567,7 @@
                       <div>
                         <div class="flex items-center justify-between gap-2 pb-1">
                           <span class="text-on-surface-variant truncate">04 Teak Doors & Windows</span>
-                          <span class="text-on-surface font-bold shrink-0" id="bd-door">₹4.5L</span>
+                          <span class="text-on-surface font-bold shrink-0" id="bd-door">₹4,72,500</span>
                         </div>
                         <div class="w-full h-2.5 rounded-full bg-surface-container-highest overflow-hidden">
                           <div class="h-full bg-primary-container" style="width: 10%"></div>
@@ -599,7 +576,7 @@
                       <div>
                         <div class="flex items-center justify-between gap-2 pb-1">
                           <span class="text-on-surface-variant truncate">05 Electrical & Plumbing (MEP)</span>
-                          <span class="text-on-surface font-bold shrink-0" id="bd-serv">₹6.3L</span>
+                          <span class="text-on-surface font-bold shrink-0" id="bd-serv">₹6,14,250</span>
                         </div>
                         <div class="w-full h-2.5 rounded-full bg-surface-container-highest overflow-hidden">
                           <div class="h-full bg-secondary-container" style="width: 13%"></div>
@@ -608,7 +585,7 @@
                       <div>
                         <div class="flex items-center justify-between gap-2 pb-1">
                           <span class="text-on-surface-variant truncate">06 Finishing & Modular Kitchen</span>
-                          <span class="text-on-surface font-bold shrink-0" id="bd-fin">₹5.0L</span>
+                          <span class="text-on-surface font-bold shrink-0" id="bd-fin">₹5,19,750</span>
                         </div>
                         <div class="w-full h-2.5 rounded-full bg-surface-container-highest overflow-hidden">
                           <div class="h-full bg-surface-dim" style="width: 11%"></div>
@@ -617,13 +594,13 @@
                     </div>
                   </div>
 
-                  <!-- CTAs -->
+                  <!-- Action Buttons -->
                   <div class="flex flex-col gap-2.5 pt-2">
-                    <a href="#contact" class="w-full min-h-[48px] py-2 px-3 rounded-xl gradient-terracotta text-white font-body text-xs sm:text-sm font-semibold flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all text-center">
+                    <a href="#contact" class="w-full min-h-[48px] py-2 px-3 rounded-xl gradient-terracotta text-white font-body text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all text-center">
                       <span class="material-symbols-outlined text-[18px]">verified</span>
-                      <span>Lock In Estimate & Request Site Survey</span>
+                      <span>Get Detailed BOQ Estimate</span>
                     </a>
-                    <button type="button" onclick="window.print()" class="w-full min-h-[44px] py-2 px-3 rounded-xl bg-surface-container text-on-surface font-body text-xs font-semibold flex items-center justify-center gap-2 hover:bg-surface-container-high transition-all border border-surface-container-highest text-center">
+                    <button type="button" onclick="window.print()" class="w-full min-h-[44px] py-2 px-3 rounded-xl bg-white text-on-surface font-body text-xs font-bold flex items-center justify-center gap-2 hover:bg-surface-container-high transition-all border border-surface-container-highest text-center shadow-xs">
                       <span class="material-symbols-outlined text-[18px]">download</span>
                       <span id="pdf-btn-text">Save Estimate (PDF Breakdown)</span>
                     </button>
@@ -1861,16 +1838,43 @@
 
         const readoutRange = document.getElementById('result-cost-range');
         const readoutSqft = document.getElementById('result-sqft-rate');
-        if (readoutRange) readoutRange.innerText = `${formatLakh(minCost)} – ${formatLakh(maxCost)}`;
-        if (readoutSqft) readoutSqft.innerText = `Approximate rate: ${formatINR(avgPerSqft)} / sq ft (${state.sqft.toLocaleString()} sq ft)`;
+        if (readoutRange) readoutRange.innerText = `${formatINR(minCost)} – ${formatINR(maxCost)}`;
+        if (readoutSqft) readoutSqft.innerText = `Approximate rate: ${formatINR(avgPerSqft)} / sq ft`;
 
         // Stage breakdown updates
-        document.getElementById('bd-struct').innerText = formatLakh(baseCost * 0.32);
-        document.getElementById('bd-mat').innerText = formatLakh(baseCost * 0.22);
-        document.getElementById('bd-lab').innerText = formatLakh(baseCost * 0.16);
-        document.getElementById('bd-door').innerText = formatLakh(baseCost * 0.10);
-        document.getElementById('bd-serv').innerText = formatLakh(baseCost * 0.13);
-        document.getElementById('bd-fin').innerText = formatLakh(baseCost * 0.11);
+        document.getElementById('bd-struct').innerText = formatINR(baseCost * 0.32);
+        document.getElementById('bd-mat').innerText = formatINR(baseCost * 0.22);
+        document.getElementById('bd-lab').innerText = formatINR(baseCost * 0.16);
+        document.getElementById('bd-door').innerText = formatINR(baseCost * 0.10);
+        document.getElementById('bd-serv').innerText = formatINR(baseCost * 0.13);
+        document.getElementById('bd-fin').innerText = formatINR(baseCost * 0.11);
+
+        // Teaser & Modal Summary Label Sync
+        const locNames = {
+          'kochi': 'Kochi / Ernakulam Belt',
+          'ernakulam': 'Ernakulam District',
+          'thrissur': 'Thrissur Belt',
+          'kozhikode': 'Kozhikode District',
+          'kannur': 'Kannur / North Malabar',
+          'other': 'Other Kerala District'
+        };
+        const floorLabels = {
+          '1.0': 'Ground Only',
+          '1.05': 'G+1 Duplex',
+          '1.12': 'G+2 Triplex'
+        };
+        const specSummary = `${state.sqft.toLocaleString()} sq ft • ${floorLabels[state.floorMult] || 'G+1'} • ${state.bhk} BHK`;
+        const locSummary = locNames[state.loc] || 'Kerala District';
+
+        const teaserSpec = document.getElementById('teaser-spec-summary');
+        const teaserLoc = document.getElementById('teaser-loc-summary');
+        const modalSpec = document.getElementById('modal-spec-summary');
+        const heroSpec = document.getElementById('hero-spec-summary');
+
+        if (teaserSpec) teaserSpec.innerText = specSummary;
+        if (teaserLoc) teaserLoc.innerText = locSummary;
+        if (modalSpec) modalSpec.innerText = `${specSummary} (${locSummary})`;
+        if (heroSpec) heroSpec.innerText = `${specSummary} (${locSummary})`;
       }
 
       // Location chips
@@ -2210,88 +2214,152 @@
       }
     })();
 
-    // --- 11. LEAD GATE & CALCULATION UNLOCK HANDLER ---
-    (function initLeadGate() {
-      const gateForm = document.getElementById('boq-lead-gate-form');
-      const gateOverlay = document.getElementById('boq-lead-gate-overlay');
-      const unlockedBox = document.getElementById('boq-lead-unlocked-results');
-      const heroLocked = document.getElementById('hero-locked-readout');
-      const heroUnlocked = document.getElementById('hero-unlocked-readout');
+    // --- 11. LEAD GATE MODAL & CALCULATION UNLOCK HANDLER ---
+    (function initLeadGateModal() {
+      const modal = document.getElementById('lead-capture-modal');
+      const modalForm = document.getElementById('modal-lead-form');
+      const closeModalBtn = document.getElementById('close-modal-btn');
+      const triggerCalcBtn = document.getElementById('trigger-calc-btn');
+      const heroCalcBtn = document.getElementById('hero-calc-btn');
       const resetBtn = document.getElementById('reset-lead-btn');
 
-      function unlockAll(name, phone) {
+      const teaserBox = document.getElementById('boq-lead-teaser-box');
+      const unlockedBox = document.getElementById('boq-lead-unlocked-results');
+
+      function isLeadCaptured() {
+        try {
+          return localStorage.getItem('tattva_lead_submitted') === 'true';
+        } catch (e) {
+          return false;
+        }
+      }
+
+      function openModal() {
+        if (modal) {
+          modal.classList.remove('hidden');
+          const nameInput = document.getElementById('modal-lead-name');
+          if (nameInput) setTimeout(() => nameInput.focus(), 100);
+        }
+      }
+
+      function closeModal() {
+        if (modal) modal.classList.add('hidden');
+      }
+
+      function revealCalculations(name, phone) {
         try {
           localStorage.setItem('tattva_lead_submitted', 'true');
           if (name) localStorage.setItem('tattva_lead_name', name);
           if (phone) localStorage.setItem('tattva_lead_phone', phone);
         } catch (e) {}
 
-        if (gateOverlay) gateOverlay.classList.add('hidden');
+        closeModal();
+
+        if (teaserBox) teaserBox.classList.add('hidden');
         if (unlockedBox) {
           unlockedBox.classList.remove('hidden');
           unlockedBox.classList.add('flex');
-        }
-        if (heroLocked) heroLocked.classList.add('hidden');
-        if (heroUnlocked) {
-          heroUnlocked.classList.remove('hidden');
-          heroUnlocked.classList.add('flex');
         }
 
         const nameSpan = document.getElementById('unlocked-lead-name');
         if (nameSpan && name) nameSpan.innerText = name;
       }
 
-      function lockAll() {
+      function resetLead() {
         try {
           localStorage.removeItem('tattva_lead_submitted');
         } catch (e) {}
 
-        if (gateOverlay) gateOverlay.classList.remove('hidden');
+        if (teaserBox) teaserBox.classList.remove('hidden');
         if (unlockedBox) {
           unlockedBox.classList.add('hidden');
           unlockedBox.classList.remove('flex');
         }
-        if (heroLocked) heroLocked.classList.remove('hidden');
-        if (heroUnlocked) {
-          heroUnlocked.classList.add('hidden');
-          heroUnlocked.classList.remove('flex');
+      }
+
+      function handleCalculateClick() {
+        if (isLeadCaptured()) {
+          const savedName = localStorage.getItem('tattva_lead_name') || 'Client';
+          revealCalculations(savedName);
+          const calcSection = document.getElementById('calculator');
+          if (calcSection) calcSection.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          openModal();
         }
       }
 
-      if (gateForm) {
-        gateForm.addEventListener('submit', (e) => {
+      if (triggerCalcBtn) triggerCalcBtn.addEventListener('click', handleCalculateClick);
+      if (heroCalcBtn) heroCalcBtn.addEventListener('click', handleCalculateClick);
+      if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+      if (resetBtn) resetBtn.addEventListener('click', resetLead);
+
+      if (modalForm) {
+        modalForm.addEventListener('submit', (e) => {
           e.preventDefault();
-          const nameInput = document.getElementById('gate-lead-name');
-          const phoneInput = document.getElementById('gate-lead-phone');
-          const name = nameInput ? nameInput.value.trim() : '';
-          const phone = phoneInput ? phoneInput.value.trim() : '';
+          const name = document.getElementById('modal-lead-name')?.value.trim();
+          const phone = document.getElementById('modal-lead-phone')?.value.trim();
 
-          if (!name) {
-            nameInput.focus();
-            return;
-          }
-          if (!phone || phone.length < 10) {
-            phoneInput.focus();
-            alert('Please enter a valid 10-digit mobile number.');
-            return;
-          }
+          if (!name) return alert('Please enter your full name');
+          if (!phone || phone.length < 10) return alert('Please enter a valid 10-digit mobile number');
 
-          unlockAll(name, phone);
+          revealCalculations(name, phone);
         });
       }
 
-      if (resetBtn) {
-        resetBtn.addEventListener('click', lockAll);
+      // Check if lead was previously captured
+      if (isLeadCaptured()) {
+        const savedName = localStorage.getItem('tattva_lead_name') || 'Client';
+        revealCalculations(savedName);
       }
 
-      // Check if lead was previously captured
-      try {
-        if (localStorage.getItem('tattva_lead_submitted') === 'true') {
-          const savedName = localStorage.getItem('tattva_lead_name') || 'Client';
-          unlockAll(savedName);
-        }
-      } catch (e) {}
+      window.closeLeadModal = closeModal;
     })();
   </script>
+
+  <!-- ==================== LEAD CAPTURE MODAL ==================== -->
+  <div id="lead-capture-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm hidden transition-opacity duration-300">
+    <div class="relative w-full max-w-md bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-surface-container-highest flex flex-col gap-5">
+      <button type="button" id="close-modal-btn" onclick="closeLeadModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high flex items-center justify-center transition-colors">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center font-bold">
+          <span class="material-symbols-outlined text-[26px]">calculate</span>
+        </div>
+        <div>
+          <h3 class="font-headline text-xl font-bold text-on-surface">Calculate Construction Cost</h3>
+          <p class="font-body text-xs text-on-surface-variant">Enter details to generate itemized Kerala BOQ calculation.</p>
+        </div>
+      </div>
+
+      <div class="p-3.5 rounded-2xl bg-surface-container-low border border-surface-container-highest font-technical text-xs flex flex-col gap-1">
+        <span class="text-secondary uppercase text-[10px] font-bold">Selected Specifications:</span>
+        <span class="text-on-surface font-bold text-sm" id="modal-spec-summary">2,000 sq ft • G+1 Duplex • 4 BHK (Kochi)</span>
+      </div>
+
+      <form id="modal-lead-form" onsubmit="return false;" class="flex flex-col gap-4">
+        <div class="flex flex-col gap-1">
+          <label for="modal-lead-name" class="font-technical text-xs font-bold text-on-surface uppercase">Full Name *</label>
+          <input type="text" id="modal-lead-name" placeholder="e.g. Rahul Menon" required class="w-full h-12 px-4 rounded-xl bg-white text-on-surface font-body text-sm border border-surface-container-highest focus:outline-none focus:border-primary shadow-xs"/>
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <label for="modal-lead-phone" class="font-technical text-xs font-bold text-on-surface uppercase">WhatsApp / Mobile Number *</label>
+          <input type="tel" id="modal-lead-phone" placeholder="e.g. 98765 43210" required class="w-full h-12 px-4 rounded-xl bg-white text-on-surface font-technical text-sm border border-surface-container-highest focus:outline-none focus:border-primary shadow-xs"/>
+        </div>
+
+        <button type="submit" id="modal-submit-btn" class="w-full h-12 rounded-xl gradient-terracotta text-white font-body text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all mt-1">
+          <span class="material-symbols-outlined text-[18px]">assessment</span>
+          <span>Generate Detailed Estimate</span>
+        </button>
+
+        <p class="font-body text-[11px] text-center text-on-surface-variant flex items-center justify-center gap-1">
+          <span class="material-symbols-outlined text-[14px] text-primary">verified_user</span>
+          <span>100% Privacy Guaranteed • Direct BOQ Cost Breakdown</span>
+        </p>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
