@@ -4,7 +4,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
   <title>Tattva Builders • Kerala House Planning & Architectural Platform</title>
-  <meta name="description" content="Plan and estimate your house construction cost in Kerala with Tattva Builders. Explore architectural designs, 360° solar & wind simulations, BOQ estimators, and turnkey execution guides."/>
+  <meta name="description" content="Plan and estimate your house construction cost in Kerala with Tattva Builders. Explore architectural designs, 360° solar & wind simulations, BOQ estimators, About Us, and Lead Collection Contact."/>
 
   <!-- Fonts & Material Symbols -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -117,20 +117,21 @@
       </a>
 
       <!-- Desktop Nav Links -->
-      <nav class="hidden md:flex items-center gap-6 font-body text-sm font-medium text-on-surface-variant">
+      <nav class="hidden lg:flex items-center gap-6 font-body text-sm font-medium text-on-surface-variant">
         <a href="#home" class="hover:text-primary transition-colors py-1 nav-link" data-nav="home">Home</a>
+        <a href="#about" class="hover:text-primary transition-colors py-1 nav-link" data-nav="about">About Us</a>
         <a href="#calculator" class="hover:text-primary transition-colors py-1 nav-link" data-nav="calculator">Cost Estimator</a>
         <a href="#designs" class="hover:text-primary transition-colors py-1 nav-link" data-nav="designs">House Designs</a>
-        <a href="#solar-sim" class="hover:text-primary transition-colors py-1 nav-link" data-nav="solar-sim">360° Simulation</a>
-        <a href="#guides" class="hover:text-primary transition-colors py-1 nav-link" data-nav="guides">Guides & Norms</a>
-        <a href="#contact" class="hover:text-primary transition-colors py-1 nav-link" data-nav="contact">Contact</a>
+        <a href="#solar-sim" class="hover:text-primary transition-colors py-1 nav-link" data-nav="solar-sim">360° Sim</a>
+        <a href="#guides" class="hover:text-primary transition-colors py-1 nav-link" data-nav="guides">Guides</a>
+        <a href="#contact" class="hover:text-primary transition-colors py-1 nav-link" data-nav="contact">Contact Us</a>
       </nav>
 
       <!-- Action Button & Profile -->
       <div class="flex items-center gap-3">
-        <a href="#calculator" class="min-h-[40px] px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-body text-xs uppercase font-bold tracking-wider flex items-center gap-1.5 shadow-sm hover:bg-surface-tint active:scale-95 transition-all">
-          <span class="material-symbols-outlined text-[18px]">calculate</span>
-          <span>Estimate BOQ</span>
+        <a href="#contact" class="min-h-[40px] px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-body text-xs uppercase font-bold tracking-wider flex items-center gap-1.5 shadow-sm hover:bg-surface-tint active:scale-95 transition-all">
+          <span class="material-symbols-outlined text-[18px]">send</span>
+          <span>Get Quote</span>
         </a>
       </div>
     </div>
@@ -735,205 +736,445 @@
         </div>
       </section>
 
-      <!-- 8. SMART CONSULTATION LEAD FORM -->
-      <section class="px-4 sm:px-6 py-12 max-w-7xl mx-auto scroll-mt-20" id="contact">
-        <div class="p-6 sm:p-10 rounded-3xl bg-inverse-surface text-inverse-on-surface shadow-2xl flex flex-col gap-6 max-w-3xl mx-auto">
-          <div>
-            <span class="font-technical text-xs uppercase tracking-widest text-tertiary-fixed font-bold">Turnkey Execution</span>
-            <h2 class="font-headline text-2xl sm:text-4xl text-surface-bright mt-1">Get Your Custom Architectural Dossier</h2>
-            <p class="font-body text-sm text-secondary-fixed-dim mt-1">Fill out your details to receive an itemized BOQ estimate and schedule an architectural consultation.</p>
-          </div>
-
-          <form id="enquiry-form" class="flex flex-col gap-4">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label class="font-technical text-xs text-secondary-fixed-dim uppercase font-bold block mb-1">Your Full Name</label>
-                <input type="text" id="w-name" placeholder="e.g. Ramesh Nair" class="w-full h-11 px-3.5 rounded-xl bg-surface-container-highest/20 text-surface-bright placeholder-secondary-fixed-dim/60 font-body text-sm border border-surface-container-highest/30 focus:outline-none focus:border-primary"/>
-              </div>
-              <div>
-                <label class="font-technical text-xs text-secondary-fixed-dim uppercase font-bold block mb-1">Mobile / WhatsApp Number</label>
-                <input type="tel" id="w-phone" placeholder="+91 98765 43210" class="w-full h-11 px-3.5 rounded-xl bg-surface-container-highest/20 text-surface-bright placeholder-secondary-fixed-dim/60 font-body text-sm border border-surface-container-highest/30 focus:outline-none focus:border-primary"/>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label class="font-technical text-xs text-secondary-fixed-dim uppercase font-bold block mb-1">District in Kerala</label>
-                <select class="w-full h-11 px-3.5 rounded-xl bg-surface-container-highest/20 text-surface-bright font-body text-sm border border-surface-container-highest/30 focus:outline-none focus:border-primary">
-                  <option class="bg-inverse-surface">Kochi / Ernakulam</option>
-                  <option class="bg-inverse-surface">Thrissur</option>
-                  <option class="bg-inverse-surface">Kozhikode</option>
-                  <option class="bg-inverse-surface">Thiruvananthapuram</option>
-                  <option class="bg-inverse-surface">Kannur</option>
-                  <option class="bg-inverse-surface">Other District</option>
-                </select>
-              </div>
-              <div>
-                <label class="font-technical text-xs text-secondary-fixed-dim uppercase font-bold block mb-1">Expected Built-up Area</label>
-                <select class="w-full h-11 px-3.5 rounded-xl bg-surface-container-highest/20 text-surface-bright font-body text-sm border border-surface-container-highest/30 focus:outline-none focus:border-primary">
-                  <option class="bg-inverse-surface">1,500 – 2,000 sq ft</option>
-                  <option class="bg-inverse-surface">2,000 – 2,500 sq ft</option>
-                  <option class="bg-inverse-surface">2,500 – 3,500 sq ft</option>
-                  <option class="bg-inverse-surface">3,500+ sq ft</option>
-                </select>
-              </div>
-            </div>
-
-            <button type="button" id="submit-estimate-btn" class="w-full h-12 rounded-xl bg-primary text-on-primary font-body text-sm font-bold flex items-center justify-center gap-2 shadow-lg hover:bg-surface-tint active:scale-[0.99] transition-all mt-2">
-              <span class="material-symbols-outlined text-[20px]">send</span>
-              <span>Request Detailed BOQ & Architectural Consultation</span>
-            </button>
-          </form>
-
-          <div id="enquiry-success" class="hidden p-4 rounded-xl bg-primary/20 border border-primary text-surface-bright text-xs font-technical text-center">
-            ✓ Your estimate request has been dispatched! A senior architect from Tattva Builders will contact you via WhatsApp with the BOQ breakdown.
-          </div>
-        </div>
-      </section>
-
     </div>
 
 
-    <!-- ==================== VIEW 2: HOUSE DESIGN DETAIL (#design-detail) ==================== -->
-    <div id="view-design-detail" class="view-container hidden">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-4 pb-12 flex flex-col gap-8">
+    <!-- ==================== VIEW 2: ABOUT US PAGE (#about) ==================== -->
+    <div id="view-about" class="view-container hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-4 pb-12 flex flex-col gap-10">
         
-        <!-- Breadcrumb & Header -->
-        <div class="flex flex-col gap-2">
-          <nav class="flex items-center gap-2 font-technical text-xs uppercase text-on-surface-variant">
-            <a href="#home" class="hover:text-primary transition-colors">Home</a>
-            <span>/</span>
-            <a href="#designs" class="hover:text-primary transition-colors">House Designs</a>
-            <span>/</span>
-            <span class="text-primary font-bold">The Courtyard Villa</span>
-          </nav>
-          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary self-start mt-1">
-            <span class="material-symbols-outlined text-[14px]">eco</span>
-            <span class="font-technical text-[10px] uppercase font-bold tracking-wider">Modern Tropical Kerala • Bioclimatic Architecture</span>
+        <!-- Header -->
+        <div class="flex flex-col gap-3 max-w-3xl">
+          <div class="inline-flex items-center gap-2 self-start px-3.5 py-1 rounded-full bg-primary/10 text-primary font-technical text-xs font-bold uppercase tracking-wider">
+            <span class="material-symbols-outlined text-[16px]">history_edu</span>
+            <span>Est. 2012 • Contextual Kerala Architecture</span>
           </div>
-          <h1 class="font-headline text-3xl sm:text-5xl text-on-surface font-normal">The Courtyard Villa</h1>
-          <p class="font-headline italic text-lg text-primary">Nadumuttam Residence Series 04</p>
+          <h1 class="font-headline text-3xl sm:text-5xl text-on-surface font-normal leading-tight">
+            Crafting Homes That Honor Kerala's Heritage & Endure Monsoons
+          </h1>
+          <p class="font-body text-base text-on-surface-variant leading-relaxed">
+            Tattva Builders was founded to eliminate construction uncertainty in Kerala. By pairing traditional bioclimatic wisdom—such as open Nadumuttam courtyards, teak Charupadi sit-outs, and pitched clay roof overhangs—with rigid 3D engineering and transparent fixed-price BOQ contracts, we turn house planning into a peaceful, inspiring journey.
+          </p>
         </div>
 
-        <!-- Key Spec Cards -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <div class="p-4 bg-surface-container-low rounded-2xl border border-surface-container-highest/60 flex flex-col justify-between">
-            <span class="font-technical text-[10px] text-on-surface-variant uppercase font-bold">Built-up Area</span>
-            <div class="flex items-baseline gap-1 mt-1">
-              <span class="font-technical text-2xl font-bold text-on-surface">2,450</span>
-              <span class="font-technical text-xs text-on-surface-variant">sq.ft</span>
-            </div>
+        <!-- Key Metrics Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-1">
+            <span class="font-technical text-3xl sm:text-4xl font-bold text-primary">150+</span>
+            <span class="font-body text-xs text-on-surface-variant font-medium uppercase tracking-wider">Kerala Homes Handed Over</span>
           </div>
-          <div class="p-4 bg-surface-container-low rounded-2xl border border-surface-container-highest/60 flex flex-col justify-between">
-            <span class="font-technical text-[10px] text-on-surface-variant uppercase font-bold">Bedrooms</span>
-            <div class="flex items-baseline gap-1 mt-1">
-              <span class="font-technical text-2xl font-bold text-on-surface">4</span>
-              <span class="font-technical text-xs text-on-surface-variant">Ensuite BHK</span>
-            </div>
+          <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-1">
+            <span class="font-technical text-3xl sm:text-4xl font-bold text-on-surface">100%</span>
+            <span class="font-body text-xs text-on-surface-variant font-medium uppercase tracking-wider">Fixed BOQ Itemized Price Lock</span>
           </div>
-          <div class="p-4 bg-surface-container-low rounded-2xl border border-surface-container-highest/60 flex flex-col justify-between">
-            <span class="font-technical text-[10px] text-on-surface-variant uppercase font-bold">Plot Fit</span>
-            <div class="flex items-baseline gap-1 mt-1">
-              <span class="font-technical text-2xl font-bold text-on-surface">6.5–10</span>
-              <span class="font-technical text-xs text-on-surface-variant">Cents</span>
-            </div>
+          <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-1">
+            <span class="font-technical text-3xl sm:text-4xl font-bold text-primary">0%</span>
+            <span class="font-body text-xs text-on-surface-variant font-medium uppercase tracking-wider">Unplanned Cost Escalation</span>
           </div>
-          <div class="p-4 bg-surface-container-low rounded-2xl border border-surface-container-highest/60 flex flex-col justify-between">
-            <span class="font-technical text-[10px] text-on-surface-variant uppercase font-bold">Floors</span>
-            <div class="flex items-baseline gap-1 mt-1">
-              <span class="font-technical text-2xl font-bold text-on-surface">G + 1</span>
-              <span class="font-technical text-xs text-on-surface-variant">Duplex</span>
-            </div>
+          <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-1">
+            <span class="font-technical text-3xl sm:text-4xl font-bold text-on-surface">4.9 ★</span>
+            <span class="font-body text-xs text-on-surface-variant font-medium uppercase tracking-wider">Client Satisfaction Rating</span>
           </div>
         </div>
 
-        <!-- Cost Banner & Action -->
-        <div class="p-5 rounded-2xl bg-surface-container-high flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div>
-            <span class="font-technical text-xs text-on-surface-variant uppercase font-bold block">Estimated Turnkey Construction Cost</span>
-            <span class="font-headline text-2xl sm:text-3xl font-bold text-primary">₹52L – ₹64L</span>
-            <span class="font-technical text-xs text-on-surface-variant ml-2">(₹2,120 – ₹2,600 / sq.ft)</span>
-          </div>
-          <div class="flex items-center gap-3 w-full sm:w-auto">
-            <a href="#solar-sim" class="flex-1 sm:flex-initial h-11 px-5 rounded-xl bg-primary text-on-primary font-body text-xs font-bold flex items-center justify-center gap-2 shadow-md hover:bg-surface-tint transition-all">
-              <span class="material-symbols-outlined text-[18px]">wb_sunny</span>
-              <span>Launch 360° Solar & Wind Sim</span>
-            </a>
-            <a href="#calculator" class="flex-1 sm:flex-initial h-11 px-4 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs font-semibold flex items-center justify-center gap-1 hover:bg-surface-container-low transition-all">
-              <span>Calculate Cost</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Interactive Image Gallery -->
-        <div class="flex flex-col gap-3">
-          <div class="relative w-full rounded-2xl overflow-hidden shadow-lg bg-inverse-surface aspect-[16/9] sm:aspect-[21/9]">
-            <img id="main-gallery-img" 
-                 src="./interior_view_of_a_modern_tropical_kerala_courtyard_house_with_natural_sunlight/screen.png" 
-                 alt="Central Courtyard" 
-                 class="w-full h-full object-cover transition-opacity duration-300"/>
-            <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-technical text-xs flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-              <span id="gallery-badge-text">Bioclimatic Sunken Courtyard (Nadumuttam)</span>
-            </div>
-          </div>
-          <div class="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
-            <button type="button" onclick="setGalleryView('courtyard')" class="gallery-pill px-4 py-2 rounded-full bg-primary text-on-primary font-technical text-xs font-bold whitespace-nowrap transition-all">Central Courtyard</button>
-            <button type="button" onclick="setGalleryView('blueprint')" class="gallery-pill px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-technical text-xs font-bold whitespace-nowrap hover:bg-surface-container-high transition-all">2D Blueprint Floor Plan</button>
-            <button type="button" onclick="setGalleryView('twilight')" class="gallery-pill px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-technical text-xs font-bold whitespace-nowrap hover:bg-surface-container-high transition-all">Twilight Exterior</button>
-            <button type="button" onclick="setGalleryView('isometric')" class="gallery-pill px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-technical text-xs font-bold whitespace-nowrap hover:bg-surface-container-high transition-all">3D Isometric Cutaway</button>
-            <button type="button" onclick="setGalleryView('landscape')" class="gallery-pill px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-technical text-xs font-bold whitespace-nowrap hover:bg-surface-container-high transition-all">Landscape & Irrigation</button>
-          </div>
-        </div>
-
-        <!-- Architectural Monograph & Floor Plans -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          <div class="lg:col-span-7 flex flex-col gap-6">
-            <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-3">
-              <h2 class="font-headline text-2xl text-on-surface">Design Monograph</h2>
-              <p class="font-body text-sm text-on-surface leading-relaxed">
-                Engineered specifically for Kerala's torrential monsoons and intense humidity. The villa revolves around an inward-focused <strong class="text-primary">Nadumuttam</strong> that regulates microclimates without demanding high-energy air conditioning. Warm breezes enter through low Charupadi loungers, travel over the central lily pond, and vent skyward through the open shaft.
+        <!-- Four Pillars of Tattva -->
+        <div class="flex flex-col gap-4">
+          <h2 class="font-headline text-2xl sm:text-3xl text-on-surface">Our Core Pillars</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <div class="p-6 rounded-2xl bg-surface-container-lowest border border-surface-container-highest/60 shadow-sm flex flex-col gap-2">
+              <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-1">
+                <span class="material-symbols-outlined text-[24px]">water_drop</span>
+              </div>
+              <h3 class="font-body text-lg font-bold text-on-surface">Monsoon-Resilient Engineering</h3>
+              <p class="font-body text-xs text-on-surface-variant leading-relaxed">
+                Kerala receives over 3,000mm of annual rainfall. Every Tattva home incorporates rubble footing waterproofing, slope-graded stormwater channels, deep eaves, and slab flood ponding tests.
               </p>
-              <div class="grid grid-cols-2 gap-3 pt-2">
-                <div class="p-3 bg-surface-container-lowest rounded-xl flex items-start gap-2">
-                  <span class="material-symbols-outlined text-primary text-[20px]">air</span>
-                  <div>
-                    <span class="font-body text-xs font-bold text-on-surface block">Passive Cooling</span>
-                    <span class="font-body text-[11px] text-on-surface-variant">Convective thermal stack</span>
-                  </div>
-                </div>
-                <div class="p-3 bg-surface-container-lowest rounded-xl flex items-start gap-2">
-                  <span class="material-symbols-outlined text-primary text-[20px]">deck</span>
-                  <div>
-                    <span class="font-body text-xs font-bold text-on-surface block">Poomukham Entry</span>
-                    <span class="font-body text-[11px] text-on-surface-variant">Shaded verandah sit-out</span>
-                  </div>
-                </div>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-surface-container-lowest border border-surface-container-highest/60 shadow-sm flex flex-col gap-2">
+              <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-1">
+                <span class="material-symbols-outlined text-[24px]">wb_sunny</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <h3 class="font-body text-lg font-bold text-on-surface">Passive Bioclimatic Cooling</h3>
+              </div>
+              <p class="font-body text-xs text-on-surface-variant leading-relaxed">
+                Our Nadumuttam central courtyards act as natural thermal chimneys, drawing hot air upward and circulating cool breezes misted over lily ponds, reducing AC energy demand by up to 45%.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-surface-container-lowest border border-surface-container-highest/60 shadow-sm flex flex-col gap-2">
+              <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-1">
+                <span class="material-symbols-outlined text-[24px]">square_foot</span>
+              </div>
+              <h3 class="font-body text-lg font-bold text-on-surface">Tactile Material Craftsmanship</h3>
+              <p class="font-body text-xs text-on-surface-variant leading-relaxed">
+                We champion authentic indigenous materials—quarried Malabar laterite stone, seasoned teak and jackwood joinery, unplastered brick masonry, and natural lime washes that age gracefully.
+              </p>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-surface-container-lowest border border-surface-container-highest/60 shadow-sm flex flex-col gap-2">
+              <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-1">
+                <span class="material-symbols-outlined text-[24px]">verified</span>
+              </div>
+              <h3 class="font-body text-lg font-bold text-on-surface">Fixed BOQ Contract Discipline</h3>
+              <p class="font-body text-xs text-on-surface-variant leading-relaxed">
+                No vague quotes or sudden mid-construction price hikes. Every steel grade, tile specification, and fitting brand is locked in writing before ground excavation begins.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Leadership & Principal Team -->
+        <div class="flex flex-col gap-4">
+          <h2 class="font-headline text-2xl sm:text-3xl text-on-surface">Leadership & Senior Architects</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-3">
+              <div class="w-full aspect-[4/3] rounded-xl bg-inverse-surface overflow-hidden">
+                <img src="./interior_view_of_a_modern_tropical_kerala_courtyard_house_with_natural_sunlight/screen.png" alt="Ar. Madhavan Nambiar" class="w-full h-full object-cover"/>
+              </div>
+              <div>
+                <h4 class="font-body text-base font-bold text-on-surface">Ar. Madhavan Nambiar</h4>
+                <span class="font-technical text-xs text-primary font-medium">Principal Architect • B.Arch (IIT Roorkee)</span>
+                <p class="font-body text-xs text-on-surface-variant mt-2">15+ years specializing in modern tropical courtyard residences and Kerala heritage restoration.</p>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-3">
+              <div class="w-full aspect-[4/3] rounded-xl bg-inverse-surface overflow-hidden">
+                <img src="./photorealistic_modern_tropical_villa_in_kerala_india_with_courtyard_natural/screen.png" alt="Er. Priya Varma" class="w-full h-full object-cover"/>
+              </div>
+              <div>
+                <h4 class="font-body text-base font-bold text-on-surface">Er. Priya Varma</h4>
+                <span class="font-technical text-xs text-primary font-medium">Head of Structural Engineering • M.Tech</span>
+                <p class="font-body text-xs text-on-surface-variant mt-2">Specialist in SBC soil bearing footings, RCC slab design, and monsoon waterproofing systems.</p>
+              </div>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-3">
+              <div class="w-full aspect-[4/3] rounded-xl bg-inverse-surface overflow-hidden">
+                <img src="./architectural_twilight_night_time_exterior_and_courtyard_lighting_scene_of_a/screen.png" alt="K. V. Suresh" class="w-full h-full object-cover"/>
+              </div>
+              <div>
+                <h4 class="font-body text-base font-bold text-on-surface">K. V. Suresh</h4>
+                <span class="font-technical text-xs text-primary font-medium">Head of Turnkey Execution</span>
+                <p class="font-body text-xs text-on-surface-variant mt-2">Oversees 30+ skilled artisan mason crews, teak joinery workshops, and site milestone quality audits.</p>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="lg:col-span-5 flex flex-col gap-4">
-            <div class="p-6 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-4">
-              <h2 class="font-headline text-xl text-on-surface">Vastu & Orientation Compliance</h2>
-              <div class="space-y-2 font-technical text-xs">
-                <div class="p-3 rounded-xl bg-surface-container-lowest flex justify-between items-center">
-                  <span class="text-primary font-bold">SOUTH-EAST</span>
-                  <span class="text-on-surface">Kitchen (Agni Cone)</span>
+        <!-- About Bottom CTA -->
+        <div class="p-8 rounded-3xl bg-inverse-surface text-inverse-on-surface flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+          <div class="flex flex-col gap-1">
+            <h3 class="font-headline text-2xl text-surface-bright font-normal">Want to Build Your Dream Home in Kerala?</h3>
+            <p class="font-body text-xs text-secondary-fixed-dim">Schedule a consultation at our Kochi studio or request an online BOQ estimate.</p>
+          </div>
+          <a href="#contact" class="h-12 px-6 rounded-xl bg-primary text-on-primary font-body text-xs uppercase font-bold tracking-wider flex items-center gap-2 shadow-md hover:bg-surface-tint active:scale-95 transition-all whitespace-nowrap">
+            <span class="material-symbols-outlined text-[18px]">send</span>
+            <span>Contact Us Now</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ==================== VIEW 5: CONTACT US & LEAD COLLECTION PAGE (#contact) ==================== -->
+    <div id="view-contact" class="view-container hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-4 pb-12 flex flex-col gap-10">
+        
+        <!-- Header -->
+        <div class="flex flex-col gap-2 max-w-3xl">
+          <div class="inline-flex items-center gap-2 self-start px-3.5 py-1 rounded-full bg-primary/10 text-primary font-technical text-xs font-bold uppercase tracking-wider">
+            <span class="material-symbols-outlined text-[16px]">headset_mic</span>
+            <span>Direct Studio Contact & Lead Dossier</span>
+          </div>
+          <h1 class="font-headline text-3xl sm:text-5xl text-on-surface font-normal leading-tight">
+            Let's Talk About Your New House
+          </h1>
+          <p class="font-body text-base text-on-surface-variant">
+            Fill out the lead form below to receive an itemized BOQ estimate, schedule a studio meeting, or ask our senior architects any questions.
+          </p>
+        </div>
+
+        <!-- Main Grid: Lead Collection Form + Real-time Dossier Card -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          <!-- Left: Multi-Step Lead Collection Form -->
+          <div class="lg:col-span-7 flex flex-col gap-6">
+            <div class="p-6 sm:p-8 rounded-3xl bg-surface-container-low border border-surface-container-highest/60 shadow-sm flex flex-col gap-6">
+              
+              <!-- Form Step 1: Project Scope -->
+              <div class="flex flex-col gap-3">
+                <span class="font-technical text-xs font-bold text-primary uppercase tracking-wider">Step 1: Project Scope & Location</span>
+                
+                <div class="flex flex-col gap-1.5">
+                  <label class="font-body text-xs font-bold text-on-surface">What type of project are you planning?</label>
+                  <div class="grid grid-cols-2 gap-2" id="form-scope-btns">
+                    <button type="button" data-val="new_build" class="scope-btn p-3 rounded-xl font-body text-xs text-left border border-primary bg-primary/10 text-primary font-bold transition-all">New House Build</button>
+                    <button type="button" data-val="plan_only" class="scope-btn p-3 rounded-xl font-body text-xs text-left border border-surface-container-highest bg-surface-container-lowest text-on-surface transition-all">Floor Plan & Design Only</button>
+                    <button type="button" data-val="remodel" class="scope-btn p-3 rounded-xl font-body text-xs text-left border border-surface-container-highest bg-surface-container-lowest text-on-surface transition-all">Remodeling / Extension</button>
+                    <button type="button" data-val="interior" class="scope-btn p-3 rounded-xl font-body text-xs text-left border border-surface-container-highest bg-surface-container-lowest text-on-surface transition-all">Interior & Landscape</button>
+                  </div>
                 </div>
-                <div class="p-3 rounded-xl bg-surface-container-lowest flex justify-between items-center">
-                  <span class="text-primary font-bold">SOUTH-WEST</span>
-                  <span class="text-on-surface">Master Suite (Nirruthi)</span>
-                </div>
-                <div class="p-3 rounded-xl bg-surface-container-lowest flex justify-between items-center">
-                  <span class="text-primary font-bold">EAST-FACING</span>
-                  <span class="text-on-surface">Poomukham Entry Portico</span>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+                  <div>
+                    <label class="font-body text-xs font-bold text-on-surface block mb-1">Kerala District</label>
+                    <select id="lead-district" class="w-full h-11 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary">
+                      <option value="Kochi / Ernakulam">Kochi / Ernakulam</option>
+                      <option value="Thrissur">Thrissur</option>
+                      <option value="Kozhikode">Kozhikode</option>
+                      <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+                      <option value="Kannur">Kannur</option>
+                      <option value="Kottayam">Kottayam</option>
+                      <option value="Palakkad">Palakkad</option>
+                      <option value="Other District">Other District</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="font-body text-xs font-bold text-on-surface block mb-1">Land Plot Size (Cents)</label>
+                    <select id="lead-plot" class="w-full h-11 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary">
+                      <option value="5 Cents">5 Cents</option>
+                      <option value="8 Cents" selected>8 Cents</option>
+                      <option value="12 Cents">12 Cents</option>
+                      <option value="15+ Cents">15+ Cents</option>
+                    </select>
+                  </div>
                 </div>
               </div>
-              <a href="#solar-sim" class="w-full h-11 rounded-xl bg-primary text-on-primary font-body text-xs font-bold flex items-center justify-center gap-2 mt-2 hover:bg-surface-tint transition-all">
-                <span class="material-symbols-outlined text-[18px]">wb_sunny</span>
-                <span>Open 360° Sun & Wind Simulator</span>
-              </a>
+
+              <!-- Form Step 2: Dimensions & Budget -->
+              <div class="flex flex-col gap-3 pt-4 border-t border-surface-container-highest/60">
+                <span class="font-technical text-xs font-bold text-primary uppercase tracking-wider">Step 2: Dimensions & Budget</span>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="font-body text-xs font-bold text-on-surface block mb-1">Expected Built-up Area</label>
+                    <select id="lead-sqft" class="w-full h-11 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary">
+                      <option value="1,000 – 1,500 sq ft">1,000 – 1,500 sq ft</option>
+                      <option value="1,500 – 2,000 sq ft">1,500 – 2,000 sq ft</option>
+                      <option value="2,000 – 2,500 sq ft" selected>2,000 – 2,500 sq ft</option>
+                      <option value="2,500 – 3,500 sq ft">2,500 – 3,500 sq ft</option>
+                      <option value="3,500+ sq ft">3,500+ sq ft</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="font-body text-xs font-bold text-on-surface block mb-1">Bedrooms (BHK)</label>
+                    <select id="lead-bhk" class="w-full h-11 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary">
+                      <option value="2 BHK">2 BHK</option>
+                      <option value="3 BHK">3 BHK</option>
+                      <option value="4 BHK" selected>4 BHK</option>
+                      <option value="5+ BHK">5+ BHK</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="font-body text-xs font-bold text-on-surface block mb-1">Target Start Timeline</label>
+                    <select id="lead-start" class="w-full h-11 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary">
+                      <option value="Immediately (Within 30 Days)">Immediately (Within 30 Days)</option>
+                      <option value="1–3 Months" selected>1–3 Months</option>
+                      <option value="3–6 Months">3–6 Months</option>
+                      <option value="Planning Phase">Planning Phase</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="font-body text-xs font-bold text-on-surface block mb-1">Estimated Budget Ceiling</label>
+                    <select id="lead-budget" class="w-full h-11 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary">
+                      <option value="₹25L – ₹35L">₹25L – ₹35L</option>
+                      <option value="₹35L – ₹50L">₹35L – ₹50L</option>
+                      <option value="₹50L – ₹75L" selected>₹50L – ₹75L</option>
+                      <option value="₹75L – ₹1.2Cr">₹75L – ₹1.2Cr</option>
+                      <option value="₹1.2Cr+">₹1.2Cr+</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Form Step 3: Specific Features -->
+              <div class="flex flex-col gap-3 pt-4 border-t border-surface-container-highest/60">
+                <span class="font-technical text-xs font-bold text-primary uppercase tracking-wider">Step 3: Desired Architectural Features</span>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 font-body text-xs text-on-surface">
+                  <label class="flex items-center gap-2 cursor-pointer p-2 rounded-lg hover:bg-surface-container transition-colors">
+                    <input type="checkbox" id="chk-courtyard" checked class="w-4 h-4 text-primary rounded accent-primary"/>
+                    <span>Nadumuttam Open Courtyard</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer p-2 rounded-lg hover:bg-surface-container transition-colors">
+                    <input type="checkbox" id="chk-solar" checked class="w-4 h-4 text-primary rounded accent-primary"/>
+                    <span>Solar PV Roof & Battery Setup</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer p-2 rounded-lg hover:bg-surface-container transition-colors">
+                    <input type="checkbox" id="chk-roof" checked class="w-4 h-4 text-primary rounded accent-primary"/>
+                    <span>Traditional Mangalore Clay Roof</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer p-2 rounded-lg hover:bg-surface-container-highest transition-colors">
+                    <input type="checkbox" id="chk-charupadi" checked class="w-4 h-4 text-primary rounded accent-primary"/>
+                    <span>Teak Charupadi Sit-out Verandah</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer p-2 rounded-lg hover:bg-surface-container transition-colors">
+                    <input type="checkbox" id="chk-vastu" checked class="w-4 h-4 text-primary rounded accent-primary"/>
+                    <span>Strict Vastu Shastra Alignment</span>
+                  </label>
+                  <label class="flex items-center gap-2 cursor-pointer p-2 rounded-lg hover:bg-surface-container transition-colors">
+                    <input type="checkbox" id="chk-rain" class="w-4 h-4 text-primary rounded accent-primary"/>
+                    <span>Rainwater Sump & Harvesting</span>
+                  </label>
+                </div>
+
+                <div class="pt-2">
+                  <label class="font-body text-xs font-bold text-on-surface block mb-1">Additional Notes / Special Requirements</label>
+                  <textarea id="lead-notes" rows="3" placeholder="Tell us about your plot slope, preferred wood, or specific room needs..." class="w-full p-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary"></textarea>
+                </div>
+              </div>
+
+              <!-- Form Step 4: Contact Details -->
+              <div class="flex flex-col gap-3 pt-4 border-t border-surface-container-highest/60">
+                <span class="font-technical text-xs font-bold text-primary uppercase tracking-wider">Step 4: Your Contact Info</span>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="font-body text-xs font-bold text-on-surface block mb-1">Full Name *</label>
+                    <input type="text" id="full-lead-name" placeholder="e.g. Anjali Nair" class="w-full h-11 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary"/>
+                  </div>
+                  <div>
+                    <label class="font-body text-xs font-bold text-on-surface block mb-1">WhatsApp Mobile *</label>
+                    <input type="tel" id="full-lead-phone" placeholder="+91 98765 43210" class="w-full h-11 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary"/>
+                  </div>
+                </div>
+
+                <div>
+                  <label class="font-body text-xs font-bold text-on-surface block mb-1">Email Address</label>
+                  <input type="email" id="full-lead-email" placeholder="anjali.nair@gmail.com" class="w-full h-11 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-body text-xs border border-surface-container-highest focus:outline-none focus:border-primary"/>
+                </div>
+
+                <button type="button" id="submit-full-lead-btn" class="w-full h-13 py-3 rounded-xl bg-primary text-on-primary font-body text-sm font-bold flex items-center justify-center gap-2 shadow-lg hover:bg-surface-tint active:scale-[0.99] transition-all mt-2">
+                  <span class="material-symbols-outlined text-[20px]">send</span>
+                  <span>Submit Lead & Claim Custom Architectural BOQ</span>
+                </button>
+
+                <div id="full-lead-success" class="hidden p-5 rounded-2xl bg-primary/10 border border-primary text-on-surface flex flex-col gap-2">
+                  <div class="flex items-center gap-2 text-primary font-bold text-sm font-body">
+                    <span class="material-symbols-outlined text-[20px]">check_circle</span>
+                    <span>Lead Dossier Generated Successfully!</span>
+                  </div>
+                  <p class="font-body text-xs text-on-surface-variant">
+                    Reference Code: <strong class="font-technical text-primary" id="ref-code">TATTVA-2026-8891</strong>. Our senior architect team has received your plot details and will reach out via WhatsApp with your itemized BOQ estimate.
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right: Live Real-Time Lead Summary Card & Studio Info -->
+          <div class="lg:col-span-5 flex flex-col gap-6">
+            
+            <!-- Live Summary Card -->
+            <div class="sticky top-20 p-6 rounded-3xl bg-inverse-surface text-inverse-on-surface shadow-2xl flex flex-col gap-5 border border-surface-container-highest/20">
+              <div class="flex flex-col gap-1 border-b border-surface-container-highest/20 pb-4">
+                <span class="font-technical text-[10px] text-tertiary-fixed font-bold uppercase tracking-wider">Live Lead Summary</span>
+                <h3 class="font-headline text-xl text-surface-bright font-normal">Custom Project Dossier</h3>
+              </div>
+
+              <div class="space-y-3 font-technical text-xs text-secondary-fixed-dim">
+                <div class="flex justify-between">
+                  <span>Scope:</span>
+                  <strong class="text-surface-bright" id="prev-scope">New House Build</strong>
+                </div>
+                <div class="flex justify-between">
+                  <span>Location:</span>
+                  <strong class="text-surface-bright" id="prev-loc">Kochi / Ernakulam (8 Cents)</strong>
+                </div>
+                <div class="flex justify-between">
+                  <span>Dimensions:</span>
+                  <strong class="text-surface-bright" id="prev-sqft">2,000–2,500 sq ft (4 BHK)</strong>
+                </div>
+                <div class="flex justify-between">
+                  <span>Budget Target:</span>
+                  <strong class="text-tertiary-fixed font-bold" id="prev-bud">₹50L – ₹75L</strong>
+                </div>
+                <div class="flex justify-between">
+                  <span>Timeline:</span>
+                  <strong class="text-surface-bright" id="prev-start">1–3 Months</strong>
+                </div>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-surface-container-highest/10 border border-surface-container-highest/20 flex flex-col gap-1 text-[11px]">
+                <span class="text-tertiary-fixed font-bold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[14px]">lock</span>
+                  <span>Fixed Price Protection Guarantee</span>
+                </span>
+                <p class="text-secondary-fixed-dim leading-normal">
+                  All Tattva project leads come with 0% cost escalation lock and structural warranty certificates.
+                </p>
+              </div>
+
+              <!-- Direct Studio Contacts -->
+              <div class="flex flex-col gap-3 pt-2 border-t border-surface-container-highest/20">
+                <span class="font-technical text-xs uppercase text-surface-bright font-bold">Direct Studio Channels</span>
+                <a href="tel:+919847012345" class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-highest/10 hover:bg-surface-container-highest/20 transition-colors">
+                  <span class="material-symbols-outlined text-primary text-[20px]">call</span>
+                  <div class="flex flex-col text-xs font-technical">
+                    <span class="text-surface-bright font-bold">+91 98470 12345</span>
+                    <span class="text-secondary-fixed-dim text-[10px]">Head Studio Desk</span>
+                  </div>
+                </a>
+                <a href="https://wa.me/919847012345" target="_blank" class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-highest/10 hover:bg-surface-container-highest/20 transition-colors">
+                  <span class="material-symbols-outlined text-primary text-[20px]">chat</span>
+                  <div class="flex flex-col text-xs font-technical">
+                    <span class="text-surface-bright font-bold">WhatsApp Direct</span>
+                    <span class="text-secondary-fixed-dim text-[10px]">Instant BOQ Chat</span>
+                  </div>
+                </a>
+                <a href="mailto:hello@tattvabuilders.com" class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-highest/10 hover:bg-surface-container-highest/20 transition-colors">
+                  <span class="material-symbols-outlined text-primary text-[20px]">mail</span>
+                  <div class="flex flex-col text-xs font-technical">
+                    <span class="text-surface-bright font-bold">hello@tattvabuilders.com</span>
+                    <span class="text-secondary-fixed-dim text-[10px]">Architectural Enquiries</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Studio Locations Grid -->
+        <div class="flex flex-col gap-4 pt-6 border-t border-surface-container-highest/60">
+          <h2 class="font-headline text-2xl text-on-surface">Visit Our Kerala Design Studios</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-2">
+              <span class="font-technical text-xs text-primary font-bold uppercase">Kochi Flagship Studio</span>
+              <h4 class="font-body text-base font-bold text-on-surface">Vyttila Studio Hub</h4>
+              <p class="font-body text-xs text-on-surface-variant leading-relaxed">
+                2nd Floor, Tattva Towers, Near Vyttila Mobility Hub, Kochi, Ernakulam - 682019
+              </p>
+              <span class="font-technical text-[11px] text-secondary mt-1">Mon – Sat: 9:00 AM – 6:30 PM</span>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-2">
+              <span class="font-technical text-xs text-primary font-bold uppercase">Thrissur Studio</span>
+              <h4 class="font-body text-base font-bold text-on-surface">Swaraj Round Studio</h4>
+              <p class="font-body text-xs text-on-surface-variant leading-relaxed">
+                4th Floor, Heritage Square, Round West, Thrissur - 680001
+              </p>
+              <span class="font-technical text-[11px] text-secondary mt-1">Mon – Sat: 9:30 AM – 6:00 PM</span>
+            </div>
+
+            <div class="p-5 rounded-2xl bg-surface-container-low border border-surface-container-highest/60 flex flex-col gap-2">
+              <span class="font-technical text-xs text-primary font-bold uppercase">Kozhikode Studio</span>
+              <h4 class="font-body text-base font-bold text-on-surface">Beach Road Studio</h4>
+              <p class="font-body text-xs text-on-surface-variant leading-relaxed">
+                1st Floor, Malabar Arcade, Beach Road, Kozhikode - 673032
+              </p>
+              <span class="font-technical text-[11px] text-secondary mt-1">Mon – Sat: 9:30 AM – 6:00 PM</span>
             </div>
           </div>
         </div>
@@ -1099,6 +1340,10 @@
         <span class="material-symbols-outlined text-[22px]">roofing</span>
         <span class="font-body text-[10px] uppercase font-bold tracking-wider mt-0.5">Home</span>
       </a>
+      <a href="#about" class="mobile-nav-link flex flex-col items-center justify-center min-w-[56px] text-on-surface-variant hover:text-primary transition-colors" data-mob-nav="about">
+        <span class="material-symbols-outlined text-[22px]">info</span>
+        <span class="font-body text-[10px] uppercase font-medium tracking-wider mt-0.5">About</span>
+      </a>
       <a href="#calculator" class="mobile-nav-link flex flex-col items-center justify-center min-w-[56px] text-on-surface-variant hover:text-primary transition-colors" data-mob-nav="calculator">
         <span class="material-symbols-outlined text-[22px]">calculate</span>
         <span class="font-body text-[10px] uppercase font-medium tracking-wider mt-0.5">Cost</span>
@@ -1107,13 +1352,9 @@
         <span class="material-symbols-outlined text-[22px]">architecture</span>
         <span class="font-body text-[10px] uppercase font-medium tracking-wider mt-0.5">Designs</span>
       </a>
-      <a href="#solar-sim" class="mobile-nav-link flex flex-col items-center justify-center min-w-[56px] text-on-surface-variant hover:text-primary transition-colors" data-mob-nav="solar-sim">
-        <span class="material-symbols-outlined text-[22px]">wb_sunny</span>
-        <span class="font-body text-[10px] uppercase font-medium tracking-wider mt-0.5">360° Sim</span>
-      </a>
-      <a href="#guides" class="mobile-nav-link flex flex-col items-center justify-center min-w-[56px] text-on-surface-variant hover:text-primary transition-colors" data-mob-nav="guides">
-        <span class="material-symbols-outlined text-[22px]">menu_book</span>
-        <span class="font-body text-[10px] uppercase font-medium tracking-wider mt-0.5">Guides</span>
+      <a href="#contact" class="mobile-nav-link flex flex-col items-center justify-center min-w-[56px] text-on-surface-variant hover:text-primary transition-colors" data-mob-nav="contact">
+        <span class="material-symbols-outlined text-[22px]">send</span>
+        <span class="font-body text-[10px] uppercase font-medium tracking-wider mt-0.5">Contact</span>
       </a>
     </div>
   </nav>
@@ -1129,7 +1370,8 @@
         '#budget': 'view-home',
         '#designs': 'view-home',
         '#timeline': 'view-home',
-        '#contact': 'view-home',
+        '#about': 'view-about',
+        '#contact': 'view-contact',
         '#design-detail': 'view-design-detail',
         '#solar-sim': 'view-solar-sim',
         '#guides': 'view-guides'
@@ -1442,7 +1684,94 @@
       document.getElementById('metric-draft-index').innerText = `${index}%`;
     }
 
-    // --- 8. SUBMIT ENQUIRY ACTION ---
+    // --- 8. LEAD FORM INTERACTION & LIVE PREVIEW ---
+    (function initLeadForm() {
+      const scopeBtns = document.querySelectorAll('.scope-btn');
+      scopeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          scopeBtns.forEach(b => b.className = 'scope-btn p-3 rounded-xl font-body text-xs text-left border border-surface-container-highest bg-surface-container-lowest text-on-surface transition-all');
+          btn.className = 'scope-btn p-3 rounded-xl font-body text-xs text-left border border-primary bg-primary/10 text-primary font-bold transition-all';
+          
+          const labels = {
+            'new_build': 'New House Build',
+            'plan_only': 'Floor Plan & Design Only',
+            'remodel': 'Remodeling / Extension',
+            'interior': 'Interior & Landscape'
+          };
+          const val = btn.dataset.val;
+          const prev = document.getElementById('prev-scope');
+          if (prev) prev.innerText = labels[val] || 'New House Build';
+        });
+      });
+
+      function bindSelectToPreview(selectId, prevId, formatter) {
+        const el = document.getElementById(selectId);
+        const prev = document.getElementById(prevId);
+        if (el && prev) {
+          el.addEventListener('change', () => {
+            prev.innerText = formatter ? formatter(el.value) : el.value;
+          });
+        }
+      }
+
+      bindSelectToPreview('lead-district', 'prev-loc', val => {
+        const plot = document.getElementById('lead-plot')?.value || '';
+        return `${val} (${plot})`;
+      });
+
+      bindSelectToPreview('lead-plot', 'prev-loc', val => {
+        const dist = document.getElementById('lead-district')?.value || '';
+        return `${dist} (${val})`;
+      });
+
+      bindSelectToPreview('lead-sqft', 'prev-sqft', val => {
+        const bhk = document.getElementById('lead-bhk')?.value || '';
+        return `${val} (${bhk})`;
+      });
+
+      bindSelectToPreview('lead-bhk', 'prev-sqft', val => {
+        const sqft = document.getElementById('lead-sqft')?.value || '';
+        return `${sqft} (${val})`;
+      });
+
+      bindSelectToPreview('lead-budget', 'prev-bud');
+      bindSelectToPreview('lead-start', 'prev-start');
+
+      // Submit full lead button
+      const fullSubmit = document.getElementById('submit-full-lead-btn');
+      if (fullSubmit) {
+        fullSubmit.addEventListener('click', () => {
+          const nameInput = document.getElementById('full-lead-name');
+          const phoneInput = document.getElementById('full-lead-phone');
+          
+          if (!nameInput.value.trim()) {
+            nameInput.focus();
+            nameInput.placeholder = 'Please enter your full name';
+            return;
+          }
+          if (!phoneInput.value.trim()) {
+            phoneInput.focus();
+            phoneInput.placeholder = 'Please enter your mobile number';
+            return;
+          }
+
+          fullSubmit.disabled = true;
+          fullSubmit.innerText = 'Generating Your BOQ Dossier...';
+          
+          setTimeout(() => {
+            fullSubmit.classList.add('hidden');
+            const successBox = document.getElementById('full-lead-success');
+            const refCode = document.getElementById('ref-code');
+            if (refCode) {
+              refCode.innerText = `TATTVA-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+            }
+            if (successBox) successBox.classList.remove('hidden');
+          }, 800);
+        });
+      }
+    })();
+
+    // Home quick submit handler
     const submitBtn = document.getElementById('submit-estimate-btn');
     if (submitBtn) {
       submitBtn.addEventListener('click', () => {
